@@ -1,0 +1,18 @@
+{
+     "name": "abd-frontend-nextjs",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+          "dev": "next dev",
+          "build": "next build",
+          "start": "next start"
+     },
+     "author": "Atef Alhassan, Braden Cariaga, David Dawson",
+     "license": "ISC",
+     "dependencies": {
+          "next": "^10.0.9",
+          "react": "^17.0.1",
+          "react-dom": "^17.0.1"
+     }
+}
