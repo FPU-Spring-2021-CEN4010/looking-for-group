@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comms",
+  "info": {
+    "name": "Comms",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Type": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Advertisments": {
+      "via": "Comm",
+      "collection": "advertisments"
+    }
+  }
+}

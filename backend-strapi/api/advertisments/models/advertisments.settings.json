@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advertisments",
+  "info": {
+    "name": "Advertisments",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Num_Players": {
+      "default": 1,
+      "required": true,
+      "type": "integer",
+      "max": 10,
+      "min": 1
+    },
+    "Game_Mode": {
+      "model": "game-modes",
+      "via": "Advertisments"
+    },
+    "Game_Name": {
+      "model": "games",
+      "via": "Advertisments"
+    },
+    "Game_Rank": {
+      "type": "integer",
+      "default": 0
+    },
+    "Region": {
+      "model": "regions",
+      "via": "Advertisments"
+    },
+    "Comm": {
+      "model": "comms",
+      "via": "Advertisments"
+    },
+    "Contact_Desc": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "Platform": {
+      "model": "platforms",
+      "via": "Advertisments"
+    }
+  }
+}
