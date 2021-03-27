@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "active_users",
+  "info": {
+    "name": "Active Users"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Display_Name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 50,
+      "minLength": 1
+    },
+    "Advertisments": {
+      "collection": "advertisments",
+      "via": "Active_User"
+    }
+  }
+}

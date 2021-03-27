@@ -46,6 +46,10 @@
     "Platform": {
       "model": "platforms",
       "via": "Advertisments"
+    },
+    "Active_User": {
+      "via": "Advertisments",
+      "model": "active-users"
     }
   }
 }
