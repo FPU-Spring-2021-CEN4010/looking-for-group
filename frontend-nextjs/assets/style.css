@@ -1,7 +1,6 @@
-h1 {
-    text-align: center;
+.center {
+     text-align: center;
 }
-
-.red-text {
-     color: red;
+.HTU-button {
+    border: none;
 }

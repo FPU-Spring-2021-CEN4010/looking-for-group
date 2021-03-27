@@ -1,10 +1,15 @@
 import Header from '../components/Header'
+import HowToUse from '../components/navigation/HowToUse'
 
 function HomePage() {
 
      
      return (
-          <Header name="Hello World" />
+          <div>
+               <Header name="Yo mama" />
+               <HowToUse />
+          </div>
+         
      )
 }
 
