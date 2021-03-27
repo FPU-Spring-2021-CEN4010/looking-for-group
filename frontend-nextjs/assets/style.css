@@ -4,3 +4,49 @@
 .HTU-button {
     border: none;
 }
+
+/*************************
+* Navigational Component *
+*************************/
+.navigation {
+     display: block;
+}
+
+.navigation > .nav-header {
+     display: block;
+
+     cursor: pointer;
+}
+
+.navigation > .nav-header > .header-text {
+     text-align: center;
+}
+
+.navigation > .dropdownbox {
+     display: none;
+     visibility: hidden;
+}
+
+.navigation.active > .dropdownbox {
+     display: block;
+     visibility: visible;
+}
+
+/*************************
+*   Miscellaneous Tags   *
+*************************/
+body {
+     display: flex; 
+     text-align: center;
+     align-content: center;
+     justify-content: center;
+}
+.container {
+     width: 1440px;
+     max-width: 1440px;
+}
+
+.comment {
+     display: none;
+     visibility: hidden;
+}
