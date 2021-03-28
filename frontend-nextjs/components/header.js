@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 function Header({name}) {
 
-
+     //shows the team logo on top of the browser along with the Welcome message, with the Users display name being shown if the have a valid cookie
      return (
           <div>
                <Image

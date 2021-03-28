@@ -27,6 +27,7 @@ class NavigationComponent extends React.Component {
      }
 
      //Arrow Icon to be displayed at the left to the option. 
+     //Arrow will be facing down originally. If clicked, the arrow will be facing up. If clicked again, it will be facing down again.
      DropdownArrow() {
           if (this.state.open == true) {
                return (
