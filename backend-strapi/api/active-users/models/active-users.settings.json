@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "active_users",
   "info": {
-    "name": "Active Users"
+    "name": "Active Users",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "Display_Name": {
@@ -18,8 +19,8 @@
       "minLength": 1
     },
     "Advertisments": {
-      "collection": "advertisments",
-      "via": "Active_User"
+      "via": "Active_User",
+      "collection": "advertisments"
     }
   }
 }

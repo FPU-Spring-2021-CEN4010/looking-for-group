@@ -1,14 +1,14 @@
 {
   "kind": "collectionType",
-  "collectionName": "advertisments",
+  "collectionName": "advertisements",
   "info": {
-    "name": "Advertisments",
+    "name": "Advertisements",
     "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "Num_Players": {
@@ -48,8 +48,12 @@
       "via": "Advertisments"
     },
     "Active_User": {
-      "via": "Advertisments",
-      "model": "active-users"
+      "model": "active-users",
+      "via": "Advertisments"
+    },
+    "Player_Roles": {
+      "collection": "player-role",
+      "via": "Advertisment"
     }
   }
 }

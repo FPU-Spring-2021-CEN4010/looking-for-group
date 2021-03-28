@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "game_modes",
+  "collectionName": "player_roles",
   "info": {
-    "name": "Game_Modes",
+    "name": "Player_Role",
     "description": ""
   },
   "options": {
@@ -11,14 +11,14 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "Title": {
+    "Role": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "Advertisments": {
-      "via": "Game_Mode",
-      "collection": "advertisments"
+    "Advertisment": {
+      "via": "Player_Roles",
+      "model": "advertisments"
     }
   }
 }

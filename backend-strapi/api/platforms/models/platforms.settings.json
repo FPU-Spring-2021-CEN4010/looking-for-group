@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "platforms",
   "info": {
-    "name": "Platforms"
+    "name": "Platforms",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "Name": {
