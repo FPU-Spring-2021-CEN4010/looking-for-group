@@ -17,6 +17,51 @@
 }
 
 /*************************
+*     Creation Form      *
+*************************/
+
+#creationForm {
+     display: flex;
+     
+     flex-direction: row;
+     flex-wrap: wrap;
+     align-content: center;
+     align-items: center;
+
+     justify-content: space-between;
+}
+
+.gameOptions {
+     display: flex;
+
+     justify-content: flex-start;
+     text-align: left;
+     
+     overflow: hidden;
+
+     padding: 2px 15px;
+
+     width: 20%;
+}
+
+.gameOptions select {
+     width: 100px;
+}
+
+.gameOptions label {
+     width: 100px;
+}
+
+.gameOptions textarea {
+     resize: none;
+}
+
+.gameOptions input {
+     width: 100px;
+}
+
+
+/*************************
 *        Popups          *
 *************************/
 /* Gives background color to the pop up */
@@ -24,19 +69,10 @@
      background-color: rgba(0, 0, 0, 0.4);
      margin: 0 35%;
 }
+
 /* Sets the text size in the pop up to 10 point font */
 .smallText {
      font-size: 10pt;
-}
-/* sets the display for modify group to be a flex box with the direction of displayed items to be column wise, i.e. vertical */
-#modGroup {    
-     display: flex;
-
-     flex-direction: column;  
-}
-/* set the input and selection of items to end at the bottom of the box */
-.gameOptions input, .gameOptions select {
-     align-self: flex-end;
 }
 
 /*************************
