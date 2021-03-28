@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function CreationForm({initalValue, title}) {
+function CreationForm({initalValue, title, hideContact=false}) {
 
     /*
         {
@@ -34,7 +34,7 @@ function CreationForm({initalValue, title}) {
     return (<div>
             <p>{title}</p>
 
-            <div id="modGroup">
+            <div id="creationForm">
                 <div className="gameOptions">
                     <label for="game">Game:</label>
                     <select onChange={handleChange} name="game" id="game">
@@ -105,15 +105,9 @@ function CreationForm({initalValue, title}) {
                     <input onChange={handleChange} type="text" name="playerNum" id="playerNum" placeholder="Players Needed" />
                 </div>
                 
-                <div className="gameOptions">
-                    <label for="joinInstructions">Join Instructions:</label>
-                    <textarea onChange={handleChange} id="joinInstructions" name="joinInstructions" placeholder="Join Instructions" rows="4" cols="50">
-                        
-                    </textarea>
-                </div>
-
-                <div className="gameOptions">
-                    <button type="button">Submit</button>
+                <div className="gameOptions" >
+                    <label for="joinInstructions" hidden={hideContact} >Join Instructions:</label>
+                    <textarea onChange={handleChange} maxlength='255' hidden={hideContact} id="joinInstructions" name="joinInstructions" placeholder="Join Instructions" rows="4" cols="50" />
                 </div>
             </div>
         </div>

@@ -1,16 +1,25 @@
 import NavigationComponent from './NavigationComponent'
+import CreationForm from '../CreationForm'
 
 class FilterGroup extends NavigationComponent {
+
      htmlContent() {
+          
+     var values = {
+          Comm: "",
+          ContactDesc: "",
+          Game_Mode: "",
+          Game_Name: "",
+          Game_Rank: "",
+          Num_Players: "",
+          Platform: "",
+          Player_Role: "",
+          Region: "",
+      };
+
           return (
                <div>
-                    <h1>I love pancakes!!!</h1>
-                    <p>This is why I like pancakes:</p>
-                    <ul>
-                         <li>They are breakfast</li>
-                         <li>They taste good</li>
-                         <li>Yummy in my Tummy</li>
-                    </ul>
+                    <CreationForm initalValue={values} title="" hideContact={true} />
                </div>
           )
      }
