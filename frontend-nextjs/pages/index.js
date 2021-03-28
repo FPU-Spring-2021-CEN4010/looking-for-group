@@ -1,18 +1,17 @@
-import Header from '../components/header'
-import DeleteGroup from '../components/popups/DeleteGroup'
-import DisplayName from '../components/popups/DisplayName'
-import ModifyGroup from '../components/popups/ModifyGroup'
+import Header from '../components/Header'
+import Navigation from '../components/Navigation'
 
-function HomePage() {     
-     return ( <div>
-          <Header name="Hello World" /> 
-          {/*
-          <DeleteGroup />
-          <DisplayName />
-     */}
-          
-          <ModifyGroup />
+function HomePage() {
+
+     
+     return (
+          <div>
+               <div className="container">
+                    <Header name="Yo mama" />
+                    <Navigation />
+               </div>
           </div>
+
      )
 }
 
