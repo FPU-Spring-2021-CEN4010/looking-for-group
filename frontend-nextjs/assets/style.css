@@ -1,8 +1,32 @@
 .center {
      text-align: center;
 }
+
 .HTU-button {
     border: none;
+}
+
+/*************************
+*        Popups          *
+*************************/
+
+.popup {
+     background-color: rgba(0, 0, 0, 0.4);
+     margin: 0 35%;
+}
+
+.smallText {
+     font-size: 10pt;
+}
+
+#modGroup {    
+     display: flex;
+
+     flex-direction: column;  
+}
+
+.gameOptions input, .gameOptions select {
+     align-self: flex-end;
 }
 
 /*************************
