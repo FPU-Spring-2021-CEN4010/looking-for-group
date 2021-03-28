@@ -12,7 +12,7 @@ function HomePage() {
                     <Navigation />
                </div>
           </div>
-
+          
      )
 }
 
