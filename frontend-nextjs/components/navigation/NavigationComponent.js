@@ -30,15 +30,11 @@ class NavigationComponent extends React.Component {
      DropdownArrow() {
           if (this.state.open == true) {
                return (
-                    <div>
-                         Some icon here
-                    </div>
+                         <p className="right-aligned-dropdown-arrow"> &uarr; </p>
                )
           } else {
                return (
-                    <div>
-                         some icon here
-                    </div>
+                         <p className="right-aligned-dropdown-arrow"> &darr; </p>
                )
           }
      }
@@ -47,7 +43,7 @@ class NavigationComponent extends React.Component {
      //This component takes in a prop of "title"
      render() {
           return (
-               <div className={"navigation" + this.state.css}>
+               <div className={"navigation " + this.state.css}>
                     <div className="nav-header" onClick={(event) => {this.toggleDropdown()}}>
                          <h1 className="header-text">{this.props.title}</h1>
                          {this.DropdownArrow()}

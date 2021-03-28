@@ -1,6 +1,14 @@
 .center {
      text-align: center;
 }
+.right-aligned-dropdown-arrow {
+     margin: 0px;
+     padding: 0px;
+     position: absolute;
+     right: 20px;
+     top: 5px;
+     font-size: 30px;
+}
 .HTU-button {
     border: none;
 }
@@ -10,11 +18,12 @@
 *************************/
 .navigation {
      display: block;
+     border: 1px solid black;
 }
 
 .navigation > .nav-header {
      display: block;
-
+     position: relative;
      cursor: pointer;
 }
 
