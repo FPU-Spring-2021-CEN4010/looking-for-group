@@ -1,6 +1,8 @@
 /* aligns text to be centered on the page */
-.center {
+.center-header-text {
      text-align: center;
+     color:white;
+     text-shadow: 2px 2px black
 }
 /* aligns the arrows for each of the displayed components and makes them bigger so they are visible */
 .right-aligned-dropdown-arrow {
@@ -8,8 +10,13 @@
      padding: 0px;
      position: absolute;
      right: 20px;
-     top: 5px;
+     top: -4px;
      font-size: 30px;
+}
+
+.color-text-white {
+     color: white;
+     text-shadow: 2px 2px black;
 }
 /*  */
 .HTU-button {
