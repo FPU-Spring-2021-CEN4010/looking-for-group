@@ -3,7 +3,7 @@ import Advertisement from "./Advertisement"
 function ViewAdvertisements() {
 
          return (
-              <div>
+              <div className="color-text-white">
                 <div className="advertisements">
                     <Advertisement />                    
                     <Advertisement />   
