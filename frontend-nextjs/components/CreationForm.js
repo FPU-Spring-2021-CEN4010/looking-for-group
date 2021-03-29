@@ -84,7 +84,15 @@ function CreationForm({initalValue, title, hideContact=false}) {
                 
                 <div className="gameOptions">
                     <label for="playerRoles">Roles:</label>
-                    <input onChange={handleChange} type="text" name="playerRoles" id="playerRoles" placeholder="Needed Roles" />
+                    <select onChange={handleChange} name="playerRoles" id="playerRoles">
+                        <option value="TOP">Top</option>
+                        <option value="SPT">Support</option>
+                        <option value="HLR">Healer/Medic</option>
+                        <option value="TNK">Tank</option>
+                        <option value="MDL">Middle</option>                        
+                        <option value="BTM">Bottom</option>
+                        <option value="JGR">Jungler</option>
+                    </select>
                 </div>
 
                 

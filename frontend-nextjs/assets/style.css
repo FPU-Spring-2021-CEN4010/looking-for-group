@@ -60,6 +60,43 @@
      width: 100px;
 }
 
+/*************************
+*     Advertisements     *
+*************************/
+#advertisementText {
+     font-size: 24pt;
+}
+
+.advertisement {
+     display: flex;
+
+     flex-direction: row;
+     flex-wrap: wrap;
+     align-content: center;
+     align-items: center;
+
+     justify-content: left;
+
+     border-style: solid;
+
+     width: 550px;
+     
+     margin: 0.5px 0;
+}
+
+.advertisement div {
+     text-align: left;
+     padding: 0 20px;
+}
+
+.advertisements {
+     display: flex;
+
+     flex-direction: row;
+     flex-wrap: wrap;
+
+     justify-content: space-between;
+}
 
 /*************************
 *        Popups          *
