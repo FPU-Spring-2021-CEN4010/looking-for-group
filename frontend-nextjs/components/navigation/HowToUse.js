@@ -4,7 +4,7 @@ class HowToUse extends NavigationComponent {
      htmlContent() {
           return (
                //All the information provided will help new users to navigate the functions of the application.
-               <div>
+               <div className="color-text-white">
                     <h2>How to Create Groups</h2>
                     <p>To create a group, first click on the <b>Create a New Group</b> tab. Next, fill in all of the provided boxes <br></br>
                     with information pertaining to your group. Afterwords, click the <b>Submit</b> button. Your information will then display on the screen. <br></br>

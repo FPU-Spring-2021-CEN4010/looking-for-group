@@ -11,7 +11,7 @@ function Header({name}) {
                width={500}
                height={200}
                />
-               <h1 className="center">Welcome to ABD's Looking for Group, { name } <br/>
+               <h1 className="center-header-text">Welcome to ABD's Looking for Group, { name } <br/>
                Start finding your groups below!
                </h1>
           </div>
