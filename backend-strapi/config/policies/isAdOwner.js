@@ -5,7 +5,7 @@ require('dotenv').config();
 
 module.exports = async (ctx, next) => {
 
-     let cookie = ctx.cookies.get("authenticated", {signed: true})
+     let cookie = ctx.cookies.get("Authorization", {signed: true})
 
      if (typeof cookie != 'undefined') {
           verify(cookie, process.env.JWT_SECRET || "bc080210-a1fa-4ff9-af9e-ea61c35e8360", async (err, decoded) => {
