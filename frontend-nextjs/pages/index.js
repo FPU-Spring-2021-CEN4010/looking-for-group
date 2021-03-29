@@ -2,22 +2,45 @@ import Header from '../components/Header'
 import ModifyGroup  from '../components/popups/ModifyGroup'
 import Navigation from '../components/Navigation'
 import ViewAdvertisements from "../components/ViewAdvertisements"
+import DisplayName from "../components/popups/DisplayName"
 
-function HomePage() {
 
-     
-     return (
-          <div>
-               <div className="container">
-                    <Header name="Yo mama" />
-                    <Navigation />
+function HomePage({user}) {
 
-                    <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                    <ViewAdvertisements />
+     let css = "";
+     if (!user) {
+          css = "blur";
+     }
+
+     if (user) {
+          return (
+               <div>
+                    <div className={"container " + css}>
+                         <Header name={(user) ? user.Display_Name : user} />
+                         <Navigation />
+
+                         <p id="advertisementText"><strong>Viewing All Groups</strong></p>
+                         <ViewAdvertisements />
+                    </div>
                </div>
-          </div>
-          
-     )
+               
+          )
+     } else {
+          return (
+               <div>
+                    <div className={"container " + css}>
+                         <Header name={(user) ? user.Display_Name : user} />
+                         <Navigation />
+
+                         <p id="advertisementText"><strong>Viewing All Groups</strong></p>
+                         <ViewAdvertisements />
+                    </div>
+
+                    <DisplayName />
+               </div>
+               
+          )
+     }
 }
 
 export default HomePage

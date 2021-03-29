@@ -117,13 +117,58 @@
 *************************/
 /* Gives background color to the pop up */
 .popup {
-     background-color: rgba(0, 0, 0, 0.4);
+     background-color: white;
      margin: 0 35%;
+     position: fixed;
+     height: 200px;
+     width: 400px;
+
+     top: 50%;
+     left: 50%;
+     margin-left: -200px;
+     margin-top: -100px;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     z-index: 3;
+
+     border-radius: 20px;
+}
+
+.popup > p, .popup > h3, .popup > input, .popup > button {
+     padding: 0;
+     margin: 5px 0;
+}
+
+.popup > h3 {
+     font-weight: bold;
+}
+
+.popup > input, .popup > button {
+     padding: 5px;
+
+     border-radius: 10px;
+}
+
+.popup > input:focus {
+     outline: none;
+     border-color: black;
 }
 
 /* Sets the text size in the pop up to 10 point font */
 .smallText {
      font-size: 10pt;
+}
+
+.popup-bg {
+     background-color: rgba(0, 0, 0, 0.4);
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     left: 0;
+     top: 0;
 }
 
 /*************************
@@ -180,4 +225,9 @@ body {
 .comment {
      display: none;
      visibility: hidden;
+}
+
+.blur {
+     filter: blur(8px);
+     -webkit-filter: blur(8px);
 }
