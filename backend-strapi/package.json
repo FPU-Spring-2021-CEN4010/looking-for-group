@@ -9,8 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "knex": "0.21.18",
     "mysql": "2.18.1",
     "strapi": "3.5.4",

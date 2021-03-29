@@ -51,9 +51,9 @@
       "model": "active-users",
       "via": "Advertisments"
     },
-    "Player_Roles": {
-      "collection": "player-role",
-      "via": "Advertisment"
+    "Player_Role": {
+      "model": "player-role",
+      "via": "Advertisments"
     }
   }
 }
