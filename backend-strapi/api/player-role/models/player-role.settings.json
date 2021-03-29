@@ -16,9 +16,9 @@
       "required": true,
       "unique": true
     },
-    "Advertisment": {
-      "via": "Player_Roles",
-      "model": "advertisments"
+    "Advertisments": {
+      "via": "Player_Role",
+      "collection": "advertisments"
     }
   }
 }
