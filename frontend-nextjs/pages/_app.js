@@ -6,7 +6,7 @@ axios.defaults.baseURL = "http://localhost:1337/"
 axios.defaults.withCredentials = true;
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
      let {data} = useSWR('/user/auth', (url) => axios(url).then(r => r.data));
 
      return (
@@ -15,3 +15,5 @@ export default function MyApp({ Component, pageProps }) {
           </SWRConfig>
      )
 }
+
+export default MyApp;
