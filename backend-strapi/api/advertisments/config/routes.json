@@ -45,13 +45,6 @@
                "config": {
                     "policies": ["global::isLoggedIn", "global::isAdOwner"]
                }
-          }, {
-               "method": "GET",
-               "path": "/fields",
-               "handler": "advertisments.fields",
-               "config": {
-                    "policies": []
-               }
           }
      ]
 }

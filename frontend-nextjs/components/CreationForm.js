@@ -1,11 +1,8 @@
-import {useState} from 'react'
-import useSWR from 'swr';
+import { useState } from 'react'
 
-function CreationForm({
-     initalValue,
-     title,
-     hideContact = false
-}) { /*
+function CreationForm({initalValue, title, hideContact=false}) {
+
+    /*
         {
             Comm: "",
             ContactDesc: "",
@@ -19,256 +16,110 @@ function CreationForm({
         }   
     */
 
-     const initialFormData = Object.freeze(initalValue)
-     const [formData, updateFormData] = useState(initialFormData);
+    const initialFormData = Object.freeze(initalValue)
+    const [formData, updateFormData] = useState(initialFormData);
 
-     const handleChange = (e) => {
-          const value = e.target.type ? e.target.input : e.target.select;
+    const handleChange = (e) => {
+        const value = e.target.type ? e.target.input : e.target.select;
+        
+        // console.log(e.target.name + " value changed to " + e.target.value);
 
-          // console.log(e.target.name + " value changed to " + e.target.value);
+        updateFormData({
+             ...formData,
 
-          updateFormData({
-               ...formData,
+             [e.target.name]: value
+        });
+   }
 
-               [e.target.name]: value
-          });
-     }
+    return (<div>
+            <p>{title}</p>
 
-     let {data} = useSWR("/fields", null, {
-          initialData: {
-               Comms: [
-                    {
-                         "id": 1,
-                         "Type": "In Game Voice"
-                    }, {
-                         "id": 2,
-                         "Type": "Text"
-                    }, {
-                         "id": 3,
-                         "Type": "Third Party Voice"
-                    }, {
-                         "id": 4,
-                         "Type": "Disabled"
-                    }
-               ],
-               Game_Modes: [
-                    {
-                         "id": 1,
-                         "Title": "Raid"
-                    },
-                    {
-                         "id": 2,
-                         "Title": "Battle Royale"
-                    },
-                    {
-                         "id": 3,
-                         "Title": "Plunder"
-                    },
-                    {
-                         "id": 4,
-                         "Title": "PvP"
-                    }, {
-                         "id": 5,
-                         "Title": "PvE"
-                    }, {
-                         "id": 6,
-                         "Title": "Multiplayer"
-                    }, {
-                         "id": 7,
-                         "Title": "Zombies"
-                    }
-               ],
-               Games: [
-                    {
-                         "id": 1,
-                         "Title": "Dark Souls"
-                    },
-                    {
-                         "id": 2,
-                         "Title": "Destiny"
-                    },
-                    {
-                         "id": 3,
-                         "Title": "Dark Souls 2"
-                    },
-                    {
-                         "id": 4,
-                         "Title": "Warzone"
-                    }, {
-                         "id": 5,
-                         "Title": "Darks Souls 3"
-                    }, {
-                         "id": 6,
-                         "Title": "Call of Duty: Modern Warfare"
-                    }, {
-                         "id": 7,
-                         "Title": "Call of Duty: Black Ops Cold War"
-                    }, {
-                         "id": 8,
-                         "Title": "Battlefield 1"
-                    }
-               ],
-               Platforms: [
-                    {
-                         "id": 1,
-                         "Name": "PC"
-                    },
-                    {
-                         "id": 2,
-                         "Name": "Xbox One"
-                    },
-                    {
-                         "id": 3,
-                         "Name": "PS4"
-                    },
-                    {
-                         "id": 4,
-                         "Name": "Xbox One X"
-                    }, {
-                         "id": 5,
-                         "Name": "PS5"
-                    }
-               ],
-               Player_Roles: [
-                    {
-                         "id": 1,
-                         "Role": "Top"
-                    },
-                    {
-                         "id": 2,
-                         "Role": "Support"
-                    },
-                    {
-                         "id": 3,
-                         "Role": "Healer/Medic"
-                    },
-                    {
-                         "id": 4,
-                         "Role": "Tank"
-                    }, {
-                         "id": 5,
-                         "Role": "Middle"
-                    }, {
-                         "id": 6,
-                         "Role": "Bottom"
-                    }, {
-                         "id": 7,
-                         "Role": "Jungler"
-                    }
-               ],
-               Regions: [
-                    {
-                         "id": 1,
-                         "Name": "NA"
-                    },
-                    {
-                         "id": 2,
-                         "Name": "EU"
-                    },
-                    {
-                         "id": 3,
-                         "Name": "SA"
-                    },
-                    {
-                         "id": 4,
-                         "Name": "OC"
-                    }, {
-                         "id": 5,
-                         "Name": "AS"
-                    }
-               ]
-          }
-     });
-
-     function PopulateSelect({info, name}) {
-          let selector = "Name";
-          let testKeys = Object.keys(info[0]);
-
-          testKeys.forEach((v) => {
-               if (v == "Type") {
-                    selector = "Type";
-               } else if (v == "Role") {
-                    selector = "Role";
-               } else if (v == "Title") {
-                    selector = "Title";
-               }
-          });
-
-          return (
-               <div className="gameOptions">
-                    <label for={name}>{name}</label>
-                    <select onChange={handleChange} name={name} id={name}>
-                         {
-                              info.map((v) => {
-                                   return <option value={v.id}>{v[selector]}</option>
-                              })
-                         }
+            <div id="creationForm">
+                <div className="gameOptions">
+                    <label for="game">Game:</label>
+                    <select onChange={handleChange} name="game" id="game">
+                        <option value="BF1">Battlefield 1</option>
+                        <option value="CODCW">Call of Duty: Cold War</option>
+                        <option value="CODMF">Call of Duty: Modern Warfare</option>
+                        <option value="DS1">Dark Souls</option>
+                        <option value="DS2">Dark Souls II</option>
+                        <option value="DS3">Dark Souls III</option>
+                        <option value="Destiny">Destiny</option>
+                        <option value="Warzone">Warzone</option>
+                        <option value="WoW">World of Warcraft</option>
                     </select>
-               </div>
-          )
-     }
+                </div>
 
-     return (
-          <div>
-               <p>{title}</p>
+                <div className="gameOptions">
+                    <label for="gameMode">Game Mode:</label>
+                    <select onChange={handleChange} name="gameMode" id="gameMode">
+                        <option value="Arenas">Arena</option>
+                        <option value="Battle Royale">Battle Royale</option>
+                        <option value="Multiplayer">Multiplayer</option>
+                        <option value="Plunder">Plunder</option>
+                        <option value="Premade">Premade</option>
+                        <option value="PvE">PvE</option>
+                        <option value="PvP">PvP</option>
+                        <option value="Raid">Raid</option>
+                        <option value="Zombies">Zombies</option>
+                    </select>
+                </div>
 
-               <div id="creationForm">
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Games} name="Game" />
-                    </div>
+                <div className="gameOptions">
+                    <label for="platform">Platform:</label>
+                    <select onChange={handleChange} name="platform" id="platform">
+                        <option value="PC">PC</option>
+                        <option value="PS4">PS4</option>
+                        <option value="PS5">PS5</option>
+                        <option value="Xbox One">Xbox One</option>
+                        <option value="Xbox One X">Xbox One X</option>
+                    </select>
+                </div>
 
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Game_Modes} name="Game Mode" />
-                    </div>
+                <div className="gameOptions">
+                    <label for="ranks">Ranks:</label>
+                    <input onChange={handleChange} type="text" name="playerRank" id="ranks" placeholder="Rank Perferred" />
+                </div>
 
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Platforms} name="Platform" />
-                    </div>
+                
+                <div className="gameOptions">
+                    <label for="playerRoles">Roles:</label>
+                    <select onChange={handleChange} name="playerRoles" id="playerRoles">
+                        <option value="TOP">Top</option>
+                        <option value="SPT">Support</option>
+                        <option value="HLR">Healer/Medic</option>
+                        <option value="TNK">Tank</option>
+                        <option value="MDL">Middle</option>                        
+                        <option value="BTM">Bottom</option>
+                        <option value="JGR">Jungler</option>
+                    </select>
+                </div>
 
-                    <div className="gameOptions">
-                         <label for="ranks">Ranks:</label>
-                         <input onChange={handleChange}
-                              type="text"
-                              name="playerRank"
-                              id="ranks"
-                              placeholder="Rank Perferred"/>
-                    </div>
+                
+                <div className="gameOptions">
+                    <label for="region">Region:</label>
+                    <select onChange={handleChange} name="region" id="region">
+                        <option value="AS">Asia</option>
+                        <option value="EU">Europe</option>
+                        <option value="NA">North America</option>
+                        <option value="OC">Oceanic</option>
+                        <option value="SA">South Asia</option>
+                    </select>
+                </div>
 
-
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Player_Roles} name="Player Role" />
-                    </div>
-
-
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Regions} name="Region" />
-                    </div>
-
-
-                    <div className="gameOptions">
-                         <label for="playerNum">How many Players:</label>
-                         <input onChange={handleChange}
-                              type="text"
-                              name="playerNum"
-                              id="playerNum"
-                              placeholder="Players Needed"/>
-                    </div>
-
-                    <div className="gameOptions">
-                         <label for="joinInstructions"
-                              hidden={hideContact}>Join Instructions:</label>
-                         <textarea onChange={handleChange}
-                              maxlength='255'
-                              hidden={hideContact}
-                              id="joinInstructions"
-                              name="joinInstructions"
-                              placeholder="Join Instructions"
-                              rows="4"
-                              cols="50"/>
-                    </div>
-               </div>
-          </div>
-     )
+                
+                <div className="gameOptions">
+                    <label for="playerNum">How many Players:</label>
+                    <input onChange={handleChange} type="text" name="playerNum" id="playerNum" placeholder="Players Needed" />
+                </div>
+                
+                <div className="gameOptions" >
+                    <label for="joinInstructions" hidden={hideContact} >Join Instructions:</label>
+                    <textarea onChange={handleChange} maxlength='255' hidden={hideContact} id="joinInstructions" name="joinInstructions" placeholder="Join Instructions" rows="4" cols="50" />
+                </div>
+            </div>
+        </div>
+    )
 }
 
 module.exports = CreationForm
