@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import useSWR from 'swr';
+import useSWR, { mutate } from 'swr';
 
 function CreationForm({
      initalValue,
@@ -34,7 +34,7 @@ function CreationForm({
           });
      }
 
-     let {data} = useSWR("/fields", null, {
+     let {data} = useSWR("/fields", {
           initialData: {
                Comms: [
                     {
@@ -179,6 +179,8 @@ function CreationForm({
                ]
           }
      });
+
+     mutate("/fields");
 
      function PopulateSelect({info, name}) {
           let selector = "Name";
