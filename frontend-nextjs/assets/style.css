@@ -75,10 +75,6 @@
 *     Advertisements     *
 *************************/
 #advertisementText {
-     border-top: 1px solid black;
-     margin-bottom: 20px;
-     padding-top: 20px;
-
      font-size: 22pt;
      
      font-family: 'Courier New', Courier, monospace;
@@ -211,6 +207,10 @@
 .navigation.active > .dropdownbox {
      display: block;
      visibility: visible;
+}
+
+#filterBorder {
+     border-bottom: 1px solid black;
 }
 
 /*************************

@@ -6,8 +6,8 @@ module.exports = () => {
      return (
           <div className="color-text-white">
                <HowToUse title="How To Use"/>
-               <CreateNewGroup title="Create a New Group"/>
-               <FilterGroup title="Filter Groups"/>
+               <CreateNewGroup title="Create New Group"/>
+               <div id="filterBorder"><FilterGroup title="Filter Groups"/></div>
           </div>
      )
 }
