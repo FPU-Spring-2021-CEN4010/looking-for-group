@@ -202,7 +202,7 @@ function CreationForm({
                     <select onChange={handleChange} name={name} id={name}>
                          {
                               info.map((v) => {
-                                   return <option value={v.id}>{v[selector]}</option>
+                                   return <option key={v.id} value={v.id}>{v[selector]}</option>
                               })
                          }
                     </select>
