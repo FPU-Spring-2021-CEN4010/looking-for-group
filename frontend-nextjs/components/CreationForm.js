@@ -215,17 +215,12 @@ function CreationForm({
                <p>{title}</p>
 
                <div id="creationForm">
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Games} name="Game" />
-                    </div>
+                    <PopulateSelect info={data.Games} name="Game" />
 
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Game_Modes} name="Game Mode" />
-                    </div>
-
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Platforms} name="Platform" />
-                    </div>
+                    <PopulateSelect info={data.Game_Modes} name="Game Mode" />
+          
+                    <PopulateSelect info={data.Platforms} name="Platform" />
+                  
 
                     <div className="gameOptions">
                          <label for="ranks">Ranks:</label>
@@ -236,16 +231,9 @@ function CreationForm({
                               placeholder="Rank Perferred"/>
                     </div>
 
-
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Player_Roles} name="Player Role" />
-                    </div>
-
-
-                    <div className="gameOptions">
-                         <PopulateSelect info={data.Regions} name="Region" />
-                    </div>
-
+                    <PopulateSelect info={data.Player_Roles} name="Player Role" />
+               
+                    <PopulateSelect info={data.Regions} name="Region" />
 
                     <div className="gameOptions">
                          <label for="playerNum">How many Players:</label>
