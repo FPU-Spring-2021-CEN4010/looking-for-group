@@ -60,8 +60,8 @@ function Advertisement({values}) {
                               <p>Info: {values.Contact_Desc}</p>
                         </div>
                     </div>
-                    <displayModify />
-                    <displayDelete />
+                    {displayModify()}
+                    {displayDelete()}
                </div>
 
           )
