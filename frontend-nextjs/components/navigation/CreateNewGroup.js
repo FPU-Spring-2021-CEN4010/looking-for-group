@@ -3,29 +3,41 @@ import CreationForm from "../CreationForm"
 
 class CreateNewGroup extends NavigationComponent {
 
-     htmlContent() {
+     constructor (props) {
+          super(props);
           
-     var values = {
-          Comm: "",
-          ContactDesc: "",
-          Game_Mode: "",
-          Game_Name: "",
-          Game_Rank: "",
-          Num_Players: "",
-          Platform: "",
-          Player_Role: "",
-          Region: "",
-      };
+          this.state = {    
+               Comm: "",
+               Contact_Desc: "",
+               Game_Mode: "",
+               Game_Name: "",
+               Game_Rank: "",
+               Num_Players: "",
+               Platform: "",
+               Player_Role: "",
+               Region: ""     
+       };
+     }
 
-      function createGroup() {
-          // create new group
-          
+     createGroup=() => {
+          return;
+     }
 
-      }
+     updateState=(state) => {
+          this.setState(state);
+     }
+
+     getState=() => {
+          return this.state;
+     }
+
+     htmlContent=() => {
+
+          console.log(this.state);
 
           return (
                <div>
-                    <CreationForm initalValue={values} funcSubmit={createGroup} title="" />
+                    <CreationForm funcState={this.updateState} initialValue={this.getState()} funcSubmit={this.createGroup} title="" />
                </div>
           )
      }

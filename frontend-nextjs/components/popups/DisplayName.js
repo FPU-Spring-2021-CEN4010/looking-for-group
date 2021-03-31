@@ -11,7 +11,7 @@ function DisplayName() {
      const handleChange = (e) => {
           const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value.trim();
 
-          console.log(e.target.name + " value changed to " + e.target.value);
+          // console.log(e.target.name + " value changed to " + e.target.value);
 
           updateFormData({
                ...formData,
@@ -23,7 +23,7 @@ function DisplayName() {
      const handleSubmit = (e) => {
           e.preventDefault();
 
-          console.log(formData.Display_Name)
+        //  console.log(formData.Display_Name)
 
           if (formData.Display_Name != "") {
                axios.post("/user/auth/login", {Display_Name: formData.Display_Name}).then((res) => {

@@ -7,7 +7,7 @@ class FilterGroup extends NavigationComponent {
           
      var values = {
           Comm: "",
-          ContactDesc: "",
+          Contact_Desc: "",
           Game_Mode: "",
           Game_Name: "",
           Game_Rank: "",

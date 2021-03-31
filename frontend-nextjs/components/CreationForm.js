@@ -2,34 +2,28 @@ import {useState} from 'react'
 import useSWR, { mutate } from 'swr';
 
 function CreationForm({
-     initalValue,
+     initialValue,
      title,
      hideContact = false,
-     funcSubmit,
-}) { /*
-        {
-            Comm: "",
-            ContactDesc: "",
-            Game_Mode: "",
-            Game_Name: "",
-            Game_Rank: "",
-            Num_Players: "",
-            Platform: "",
-            Player_Role: "",
-            Region: "",
-        }   
-    */
+     funcState,
+     funcSubmit
+}) {
+     console.log(initialValue);
 
-     const initialFormData = Object.freeze(initalValue)
+     const initialFormData = Object.freeze(initialValue)
      const [formData, updateFormData] = useState(initialFormData);
 
      const handleChange = (e) => {
-          const value = e.target.type ? e.target.input : e.target.select;
+          const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value.trim();
+          
+          funcState({
+               ...formData, 
 
-          // console.log(e.target.name + " value changed to " + e.target.value);
+               [e.target.name]: value
+          });
 
           updateFormData({
-               ...formData,
+               ...formData, 
 
                [e.target.name]: value
           });
@@ -183,7 +177,7 @@ function CreationForm({
 
      mutate("/fields");
 
-     function PopulateSelect({info, name}) {
+     function PopulateSelect({info, db, name}) {
           let selector = "Name";
           let testKeys = Object.keys(info[0]);
 
@@ -200,7 +194,7 @@ function CreationForm({
           return (
                <div className="gameOptions">
                     <label for={name}>{name}:</label>
-                    <select onChange={handleChange} name={name} id={name}>
+                    <select onChange={handleChange} name={db} value={formData}  id={db}>
                          {
                               info.map((v) => {
                                    return <option key={v.id} value={v.id}>{v[selector]}</option>
@@ -217,33 +211,33 @@ function CreationForm({
 
                <div id="creationForm">
                     
-                    <PopulateSelect info={data.Comms} name="Comms" />
+                    <PopulateSelect info={data.Comms} db='Comm' name="Comm" />
 
-                    <PopulateSelect info={data.Games} name="Game" />
+                    <PopulateSelect info={data.Games} db='Game_Name' name="Game Name" />
 
-                    <PopulateSelect info={data.Game_Modes} name="Game Mode" />
+                    <PopulateSelect info={data.Game_Modes} db='Game_Mode' name="Game Mode" />
           
-                    <PopulateSelect info={data.Platforms} name="Platform" />
+                    <PopulateSelect info={data.Platforms} db='Platform' name="Platform" />
                   
 
                     <div className="gameOptions">
                          <label for="ranks">Ranks:</label>
                          <input onChange={handleChange}
                               type="text"
-                              name="playerRank"
+                              name="Game_Rank"
                               id="ranks"
                               placeholder="Rank Perferred"/>
                     </div>
 
-                    <PopulateSelect info={data.Player_Roles} name="Player Role" />
+                    <PopulateSelect info={data.Player_Roles} db='Player_Role' name="Player Role" />
                
-                    <PopulateSelect info={data.Regions} name="Region" />
+                    <PopulateSelect info={data.Regions} db='Region' name="Region" />
 
                     <div className="gameOptions">
                          <label for="playerNum">How many Players:</label>
                          <input onChange={handleChange}
                               type="text"
-                              name="playerNum"
+                              name="Num_Players"
                               id="playerNum"
                               placeholder="Players Needed"/>
                     </div>
@@ -255,7 +249,7 @@ function CreationForm({
                               maxlength='255'
                               hidden={hideContact}
                               id="joinInstructions"
-                              name="joinInstructions"
+                              name="Contact_Desc"
                               placeholder="Join Instructions"
                               rows="4"
                               cols="50"/>
