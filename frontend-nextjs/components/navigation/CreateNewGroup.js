@@ -7,37 +7,30 @@ class CreateNewGroup extends NavigationComponent {
           super(props);
           
           this.state = {    
-               Comm: "",
+               Comm: "0",
                Contact_Desc: "",
-               Game_Mode: "",
-               Game_Name: "",
+               Game_Mode: "0",
+               Game_Name: "0",
                Game_Rank: "",
                Num_Players: "",
-               Platform: "",
-               Player_Role: "",
-               Region: ""     
+               Platform: "0",
+               Player_Role: "0",
+               Region: "0"     
        };
      }
 
      createGroup=() => {
-          return;
+          console.log(this.state);
      }
 
      updateState=(state) => {
           this.setState(state);
      }
 
-     getState=() => {
-          return this.state;
-     }
-
      htmlContent=() => {
-
-          console.log(this.state);
-
           return (
                <div>
-                    <CreationForm funcState={this.updateState} initialValue={this.getState()} funcSubmit={this.createGroup} title="" />
+                    <CreationForm funcState={this.updateState} funcSubmit={this.createGroup} title="" />
                </div>
           )
      }

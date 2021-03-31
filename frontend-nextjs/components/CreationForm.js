@@ -2,15 +2,22 @@ import {useState} from 'react'
 import useSWR, { mutate } from 'swr';
 
 function CreationForm({
-     initialValue,
      title,
      hideContact = false,
      funcState,
      funcSubmit
 }) {
-     console.log(initialValue);
-
-     const initialFormData = Object.freeze(initialValue)
+     const initialFormData = Object.freeze({    
+          Comm: "0",
+          Contact_Desc: "",
+          Game_Mode: "0",
+          Game_Name: "0",
+          Game_Rank: "",
+          Num_Players: "",
+          Platform: "0",
+          Player_Role: "0",
+          Region: "0"      
+     });
      const [formData, updateFormData] = useState(initialFormData);
 
      const handleChange = (e) => {
@@ -194,7 +201,7 @@ function CreationForm({
           return (
                <div className="gameOptions">
                     <label for={name}>{name}:</label>
-                    <select onChange={handleChange} name={db} value={formData}  id={db}>
+                    <select onChange={handleChange} name={db} value={formData[db]}  id={db}>
                          {
                               info.map((v) => {
                                    return <option key={v.id} value={v.id}>{v[selector]}</option>
