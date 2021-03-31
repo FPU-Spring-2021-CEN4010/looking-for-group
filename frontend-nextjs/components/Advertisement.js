@@ -1,3 +1,5 @@
+const DeleteGroup = require("./popups/DeleteGroup");
+const ModifyGroup = require("./popups/ModifyGroup");
 
 function Advertisement({values}) {
 
@@ -5,6 +7,8 @@ function Advertisement({values}) {
                <div>
                     <div className="advertisement">
                          <div className="column1">
+                              <button className="edit-button" type="button" onClick={ModifyGroup}> &#9999;</button>
+                              <button className="delete-button" type="button" onClick={DeleteGroup}> &times; </button>
                               <p>Game: {values.Game_Name.Title}</p>
                               <p>Platform: {values.Platform.Name}</p>
                               <p>Player Role: {values.Player_Role.Role}</p>
