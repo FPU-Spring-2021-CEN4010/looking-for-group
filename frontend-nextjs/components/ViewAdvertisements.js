@@ -1,23 +1,24 @@
+import useSWR, { mutate } from "swr";
 import Advertisement from "./Advertisement"
 
 function ViewAdvertisements() {
 
-         return (
-              <div>
-                <div className="advertisements">
-                    <Advertisement />                    
-                    <Advertisement />   
-                    <Advertisement />   
-                    <Advertisement />   
-                    <Advertisement />   
-                    <Advertisement />   
-                    <Advertisement />   
-                    <Advertisement />   
-                    <Advertisement />   
-                </div>
-              </div>
-         )
-      
+     const {data} = useSWR("/advertisments", {
+          initialData: []
+     });
+
+     mutate("/advertisments");
+
+     return (
+          <div>
+               <div className="advertisements">
+                    {data.map((v) => {
+                         return <Advertisement values={v} />
+                    }) }
+               </div>
+          </div>
+     ) 
+
 }
 
 module.exports = ViewAdvertisements
