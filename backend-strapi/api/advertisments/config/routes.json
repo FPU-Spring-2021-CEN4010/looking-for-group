@@ -1,6 +1,22 @@
 {
      "routes": [
           {
+               "method": "POST",
+               "path": "/advertisments",
+               "handler": "advertisments.create",
+               "config": {
+                    "policies": ["global::isLoggedIn"]
+               }
+          },
+          {
+               "method": "DELETE",
+               "path": "/advertisments/:id",
+               "handler": "advertisments.delete",
+               "config": {
+                    "policies": ["global::isLoggedIn", "global::isAdOwner"]
+               }
+          },
+          {
                "method": "GET",
                "path": "/advertisments",
                "handler": "advertisments.find",
@@ -25,27 +41,14 @@
                }
           },
           {
-               "method": "POST",
-               "path": "/advertisments",
-               "handler": "advertisments.create",
-               "config": {
-                    "policies": ["global::isLoggedIn"]
-               }
-          }, {
                "method": "PUT",
                "path": "/advertisments/:id",
                "handler": "advertisments.update",
                "config": {
                     "policies": ["global::isLoggedIn", "global::isAdOwner"]
                }
-          }, {
-               "method": "DELETE",
-               "path": "/advertisments/:id",
-               "handler": "advertisments.delete",
-               "config": {
-                    "policies": ["global::isLoggedIn", "global::isAdOwner"]
-               }
-          }, {
+          }, 
+          {
                "method": "GET",
                "path": "/fields",
                "handler": "advertisments.fields",

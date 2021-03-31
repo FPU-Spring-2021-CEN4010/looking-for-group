@@ -1,24 +1,48 @@
 'use strict';
 
-const { sanitizeEntity } = require('strapi-utils');
+const {sanitizeEntity} = require('strapi-utils');
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 
-module.exports = {
-     /**
-      * Delete a record.
-      *
-      * @return {Object}
-      */
+module.exports = { 
+     async create(ctx) {
+          try {
+               let data = ctx.request.body;
+
+               const entity = await strapi.services.login.decodeCookie(ctx, async (err, decoded) => {
+                    if (err) {
+                         ctx.unauthorized("Invalid Cookie!");
+                    }
+
+                    if (!err && decoded) {
+                         data = {
+                              ...data,
+                              Active_User: decoded.uid
+                         }
+                    }
+
+                    const entity = await strapi.services.advertisments.create(data);
+
+                    return entity;
+               });
+
+               return sanitizeEntity(entity, {model: strapi.models.advertisments})
+          } catch (err) {
+               if (err == "NO_COOKIE") {
+                    return ctx.unauthorized("You do not have an active cookie set!");
+               }
+               return err
+          }
+     },
 
      async delete(ctx) {
-          const { id } = ctx.params;
-     
-          const entity = await strapi.services.advertisments.delete({ id });
-          return sanitizeEntity(entity, { model: strapi.models.advertisments });
+          const {id} = ctx.params;
+
+          const entity = await strapi.services.advertisments.delete({id});
+          return sanitizeEntity(entity, {model: strapi.models.advertisments});
      },
 
      async fields(ctx) {
@@ -39,5 +63,6 @@ module.exports = {
           }
 
           return Options;
-     }
+     },
 };
+
