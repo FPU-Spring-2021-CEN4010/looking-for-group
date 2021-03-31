@@ -27,6 +27,20 @@
     border: none;
 }
 
+.edit-button {
+     margin: 0;
+     position: relative;
+     top: 5%;
+     left: 290%;
+}
+
+.delete-button {
+     margin: 0;
+     position: relative;
+     top: 0%;
+     left: 250%;
+}
+
 /*************************
 *     Creation Form      *
 *************************/

@@ -5,6 +5,8 @@ function Advertisement({values}) {
                <div>
                     <div className="advertisement">
                          <div className="column1">
+                              <button className="edit-button" type="button"> &times; </button>
+                              <button className="delete-button" type="button"> &#9999; </button>
                               <p>Game: {values.Game_Name.Title}</p>
                               <p>Platform: {values.Platform.Name}</p>
                               <p>Player Role: {values.Player_Role.Role}</p>
