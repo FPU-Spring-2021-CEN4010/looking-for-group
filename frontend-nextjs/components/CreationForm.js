@@ -4,7 +4,8 @@ import useSWR, { mutate } from 'swr';
 function CreationForm({
      initalValue,
      title,
-     hideContact = false
+     hideContact = false,
+     funcSubmit,
 }) { /*
         {
             Comm: "",
@@ -198,7 +199,7 @@ function CreationForm({
 
           return (
                <div className="gameOptions">
-                    <label for={name}>{name}</label>
+                    <label for={name}>{name}:</label>
                     <select onChange={handleChange} name={name} id={name}>
                          {
                               info.map((v) => {
@@ -215,6 +216,9 @@ function CreationForm({
                <p>{title}</p>
 
                <div id="creationForm">
+                    
+                    <PopulateSelect info={data.Comms} name="Comms" />
+
                     <PopulateSelect info={data.Games} name="Game" />
 
                     <PopulateSelect info={data.Game_Modes} name="Game Mode" />
@@ -246,7 +250,7 @@ function CreationForm({
 
                     <div className="gameOptions">
                          <label for="joinInstructions"
-                              hidden={hideContact}>Join Instructions:</label>
+                              hidden={hideContact}>Info:</label>
                          <textarea onChange={handleChange}
                               maxlength='255'
                               hidden={hideContact}
@@ -255,6 +259,10 @@ function CreationForm({
                               placeholder="Join Instructions"
                               rows="4"
                               cols="50"/>
+                    </div>
+
+                    <div className="submitWrapper">
+                         <button className="btnSubmit" onClick={funcSubmit} type="submit">Submit</button>
                     </div>
                </div>
           </div>

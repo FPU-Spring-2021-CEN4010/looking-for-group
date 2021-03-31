@@ -17,9 +17,13 @@ class FilterGroup extends NavigationComponent {
           Region: "",
       };
 
+      function filterGroup() {
+          console.log("urgay");
+      }
+
           return (
                <div>
-                    <CreationForm initalValue={values} title="" hideContact={true} />
+                    <CreationForm initalValue={values} funcSubmit={filterGroup} title="" hideContact={true} />
                </div>
           )
      }
