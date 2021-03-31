@@ -11,15 +11,17 @@ require('dotenv').config();
 
 module.exports = {
      async decodeCookie(ctx, callback) {
-          let cookie = ctx.cookies.get("Authorization", {signed: true});
+          return new Promise((resolve, reject) => {
+               let cookie = ctx.cookies.get("Authorization", {signed: true});
 
-          if (typeof cookie != 'undefined') {
-               verify(cookie, process.env.JWT_SECRET || "bc080210-a1fa-4ff9-af9e-ea61c35e8360", (err, decoded) => {
-                    callback(err, decoded);
-               })
-          } else {
-               throw "NO_COOKIE";
-          }
+               if (typeof cookie != 'undefined') {
+                    verify(cookie, process.env.JWT_SECRET || "bc080210-a1fa-4ff9-af9e-ea61c35e8360", (err, decoded) => {
+                         resolve(callback(err, decoded));
+                    })
+               } else {
+                    reject("NO_COOKIE");
+               }
+          });
      },
 
      async saveDisplayName(data) {
