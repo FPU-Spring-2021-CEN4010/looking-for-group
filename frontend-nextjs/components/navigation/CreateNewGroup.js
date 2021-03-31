@@ -17,9 +17,15 @@ class CreateNewGroup extends NavigationComponent {
           Region: "",
       };
 
+      function createGroup() {
+          // create new group
+          
+
+      }
+
           return (
                <div>
-                    <CreationForm initalValue={values} title="" />
+                    <CreationForm initalValue={values} funcSubmit={createGroup} title="" />
                </div>
           )
      }

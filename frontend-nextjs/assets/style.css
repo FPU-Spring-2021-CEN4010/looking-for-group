@@ -47,6 +47,8 @@
 
      justify-content: flex-start;
      text-align: left;
+
+     align-items: center;
      
      overflow: hidden;
 
@@ -56,11 +58,11 @@
 }
 
 .gameOptions select {
-     width: 100px;
+     width: 125px;
 }
 
 .gameOptions label {
-     width: 100px;
+     width: 125px;
 }
 
 .gameOptions textarea {
@@ -68,7 +70,24 @@
 }
 
 .gameOptions input {
-     width: 100px;
+     width: 125px;
+}
+
+.submitWrapper {
+     width: 100%;
+     
+     margin-top: 2px;
+     margin-bottom: 10px;
+}
+
+#playerNum {
+     justify-content: center;
+     height: 15px;
+}
+
+.btnSubmit {
+     width: 150px;
+     text-align: center;
 }
 
 /*************************
