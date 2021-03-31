@@ -41,7 +41,7 @@
     "Contact_Desc": {
       "type": "text",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "Platform": {
       "model": "platforms",
