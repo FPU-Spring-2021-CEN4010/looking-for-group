@@ -1,14 +1,51 @@
-const DeleteGroup = require("./popups/DeleteGroup");
-const ModifyGroup = require("./popups/ModifyGroup");
+import DeleteGroup from './popups/DeleteGroup'
+import ModifyGroup from './popups/ModifyGroup'
+import { useState } from 'react'
 
 function Advertisement({values}) {
+
+     const initialFormData = Object.freeze({
+          modify: false,
+          delete: false
+     })
+
+     const [formData, updateFormData] = useState(initialFormData);
+
+     function showModify() {
+          updateFormData({
+               ...formData,
+
+               modify: true
+          });
+     }
+
+     function showDelete() {
+          updateFormData({
+               ...formData,
+
+               delete: true
+          });
+     }
+
+     function displayModify(){
+          if(formData.modify == true){
+               return <ModifyGroup />
+          }
+          return ;
+     }
+     function displayDelete(){
+          if(formData.delete == true){
+               return <DeleteGroup />
+          }
+          return ;
+     }
 
           return (
                <div>
                     <div className="advertisement">
                          <div className="column1">
-                              <button className="edit-button" type="button" onClick={ModifyGroup}> &#9999;</button>
-                              <button className="delete-button" type="button" onClick={DeleteGroup}> &times; </button>
+                              <button id="button-edit" className="edit-button" type="button" onClick={showModify}> &#9999;</button>
+                              <button id="button-delete" className="delete-button" type="button" onClick={showDelete}> &times; </button>
                               <p>Game: {values.Game_Name.Title}</p>
                               <p>Platform: {values.Platform.Name}</p>
                               <p>Player Role: {values.Player_Role.Role}</p>
@@ -23,8 +60,13 @@ function Advertisement({values}) {
                               <p>Info: {values.Contact_Desc}</p>
                         </div>
                     </div>
+                    <displayModify />
+                    <displayDelete />
                </div>
+
           )
+
+
        
 }
 
