@@ -28,17 +28,16 @@
 }
 
 .edit-button {
-     margin: 0;
-     position: relative;
-     top: 0%;
-     left: 265%;
+     position: absolute;
+     right: 31px;
+     top: 0px;
 }
 
 .delete-button {
-     margin: 0;
-     position: relative;
-     top: 0%;
-     left: 270%;
+     position: absolute;
+     right: 0px;
+     top: 0px;
+     block-size: 23px;
 }
 
 /*************************
@@ -117,7 +116,7 @@
 
 .advertisement {
      display: flex;
-
+     position: relative;
      flex-direction: row;
      flex-wrap: nowrap;     
 

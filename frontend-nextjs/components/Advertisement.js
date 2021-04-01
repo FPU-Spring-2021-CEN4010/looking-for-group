@@ -59,9 +59,10 @@ function Advertisement({values, filterFunc}) {
           return (
                <div>
                     <div className="advertisement">
+                         <button className="edit-button" type="button" onClick={showModify}> &#9999;</button>
+                         <button className="delete-button" type="button" onClick={showDelete}> &times; </button>
                          <div className="column1">
-                              <button id="button-edit" className="edit-button" type="button" onClick={showModify}> &#9999;</button>
-                              <button id="button-delete" className="delete-button" type="button" onClick={showDelete}> &times; </button>
+                              
                               <p>Game: {values.Game_Name.Title}</p>
                               <p>Platform: {values.Platform.Name}</p>
                               <p>Player Role: {values.Player_Role.Role}</p>
@@ -70,6 +71,7 @@ function Advertisement({values, filterFunc}) {
                          </div>
 
                         <div className="column2">
+                              
                               <p>Game Rank: {values.Game_Rank}</p>
                               <p>Region: {values.Region.Name}</p>
                               <p>Looking for {values.Num_Players} more player(s).</p>
