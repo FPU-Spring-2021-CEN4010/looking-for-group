@@ -1,24 +1,18 @@
 import CreationForm from "../CreationForm"
 
-function ModifyGroup() {
+function ModifyGroup({initialValues}) {
+     const [formData, updateFormData] = useState(initialValues);
 
-    var values = {
-        Comm: "",
-        ContactDesc: "",
-        Game_Mode: "",
-        Game_Name: "",
-        Game_Rank: "",
-        Num_Players: "",
-        Platform: "",
-        Player_Role: "",
-        Region: "",
-    };
+     const updateGroup = (state) => {
+          //Do something here
+          return
+     }
 
-    return ( 
-        <div>
-            <CreationForm initalValue={values} title="Modify Group" />
-        </div>
-    )
+     return ( 
+          <div>
+               <CreationForm initialValues={formData} funcState={updateFormData} funcSubmit={updateGroup} title="" hideContact={false} />
+          </div>
+     )
 }
 
 module.exports = ModifyGroup
