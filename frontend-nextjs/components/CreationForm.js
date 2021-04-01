@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import useSWR, { mutate } from 'swr';
+import {useEffect} from 'react';
 
 function CreationForm({
      title,
@@ -29,18 +30,16 @@ function CreationForm({
      const handleChange = (e) => {
           const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value.trim();
           
-          funcState({
-               ...formData, 
-
-               [e.target.name]: value
-          });
-
           updateFormData({
                ...formData, 
 
                [e.target.name]: value
           });
      }
+
+     useEffect(() => {
+          funcState(formData);
+     }, [formData]);
 
      let {data} = useSWR("/fields", {
           initialData: {

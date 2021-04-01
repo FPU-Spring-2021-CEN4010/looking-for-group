@@ -1,7 +1,7 @@
-import NavigationComponent from './NavigationComponent'
-import CreationForm from "../CreationForm"
-import axios from 'axios'
-import {mutate} from 'swr'
+import NavigationComponent from './NavigationComponent';
+import CreationForm from "../CreationForm";
+import axios from 'axios';
+import {mutate} from 'swr';
 
 class CreateNewGroup extends NavigationComponent {
 
@@ -69,7 +69,7 @@ class CreateNewGroup extends NavigationComponent {
      htmlContent = () => {
           return (
                <div>
-                    <CreationForm funcState={this.updateState} funcSubmit={this.createGroup} title=""/>
+                    <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.createGroup} title="" hideContact={false}/>
                </div>
           )
      }

@@ -3,6 +3,8 @@ import ModifyGroup  from '../components/popups/ModifyGroup'
 import Navigation from '../components/Navigation'
 import ViewAdvertisements from "../components/ViewAdvertisements"
 import DisplayName from "../components/popups/DisplayName"
+import {useState} from 'react'
+import useSWR, { mutate } from 'swr'
 
 
 function HomePage({user}) {
@@ -12,15 +14,20 @@ function HomePage({user}) {
           css = "blur";
      }
 
+     const [filter, updateFilter] = useState("");
+
+     const {data} = useSWR('/advertisments' + filter);
+     mutate('/advertisments' + filter);
+
      if (user) {
           return (
                <div>
                     <div className={"container " + css}>
                          <Header name={(user) ? user.Display_Name : user} />
-                         <Navigation />
+                         <Navigation filterFunc={updateFilter} />
 
                          <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                         <ViewAdvertisements />
+                         <ViewAdvertisements data={data} />
                     </div>
                </div>
                
@@ -30,10 +37,10 @@ function HomePage({user}) {
                <div>
                     <div className={"container " + css}>
                          <Header name={(user) ? user.Display_Name : user} />
-                         <Navigation />
+                         <Navigation filterFunc={updateFilter} />
 
                          <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                         <ViewAdvertisements />
+                         <ViewAdvertisements data={data} />
                     </div>
 
                     <DisplayName />
