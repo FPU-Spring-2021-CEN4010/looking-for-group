@@ -119,11 +119,12 @@
      display: flex;
 
      flex-direction: row;
-     flex-wrap: wrap;
+     flex-wrap: nowrap;     
+
      align-content: center;
      align-items: center;
 
-     justify-content: left;
+     justify-content: center;
 
      border-style: solid;
      border-color: black;
@@ -141,6 +142,7 @@
 
 .advertisement div {
      text-align: left;
+     
      padding: 0 20px;
 }
 
@@ -151,6 +153,15 @@
      flex-wrap: wrap;
 
      justify-content: space-between;
+}
+
+.column1 {
+     height: 100%;
+}
+
+.column2 {
+     height: 100%;
+     width: 50%;
 }
 
 /*************************
@@ -219,7 +230,7 @@
 /* navigation is in block form with a 1 pixel sized black border */
 .navigation {
      display: block;
-     border-top: 1px solid black;
+     border-bottom: 1px solid black;
 }
 /* nav-header is a part of navigation and turns the cursor to a pointer and positions the header relative to the screen */
 .navigation > .nav-header {

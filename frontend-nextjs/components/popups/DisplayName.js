@@ -38,7 +38,7 @@ function DisplayName() {
                     <h3>Welcome to ABD's Looking for Group</h3>
                     <p>Please enter a Display Name Below: 
                          <br />
-                         <span class="smallText">Your display name will be active for only 24 hours.</span>
+                         <span className="smallText">Your display name will be active for only 24 hours.</span>
                     </p>
 
                     <input type="text" id="Display_Name" name="Display_Name" placeholder="Enter a Display Name" onChange={handleChange} />

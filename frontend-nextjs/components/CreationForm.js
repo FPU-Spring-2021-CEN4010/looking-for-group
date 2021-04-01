@@ -195,7 +195,7 @@ function CreationForm({
 
           return (
                <div className="gameOptions">
-                    <label for={name}>{name}:</label>
+                    <label htmlFor={name}>{name}:</label>
                     <select onChange={handleChange} name={db} value={formData[db]}  id={db}>
                          <option key="empty" value=""></option>
                          {
@@ -224,7 +224,7 @@ function CreationForm({
                   
 
                     <div className="gameOptions">
-                         <label for="ranks">Ranks:</label>
+                         <label htmlFor="ranks">Ranks:</label>
                          <input onChange={handleChange}
                               type="number"
                               name="Game_Rank"
@@ -237,7 +237,7 @@ function CreationForm({
                     <PopulateSelect info={data.Regions} db='Region' name="Region" />
 
                     <div className="gameOptions">
-                         <label for="playerNum">How many Players:</label>
+                         <label htmlFor="playerNum">How many Players:</label>
                          <input onChange={handleChange}
                               type="number"
                               name="Num_Players"
@@ -248,10 +248,10 @@ function CreationForm({
                     </div>
 
                     <div className="gameOptions">
-                         <label for="joinInstructions"
+                         <label htmlFor="joinInstructions"
                               hidden={hideContact}>Info:</label>
                          <textarea onChange={handleChange}
-                              maxlength='255'
+                              maxLength='255'
                               hidden={hideContact}
                               id="joinInstructions"
                               name="Contact_Desc"
