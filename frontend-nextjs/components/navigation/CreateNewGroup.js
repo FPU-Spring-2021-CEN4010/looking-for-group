@@ -30,12 +30,20 @@ class CreateNewGroup extends NavigationComponent {
           
           let numberFields = ["Comm", "Game_Mode", "Game_Name", "Game_Rank", "Num_Players", "Platform", "Player_Role", "Region"]
 
-          for (let i = 0; i < numberFields.length; i++) {
-               let numberField = numberFields[i];
-               if (typeof formData[numberField] == "number") {
-                    continue;
-               } else {
-                    formData[numberField] = parseInt(formData[numberField]);
+          let allFields = Object.keys(formData);
+          for (let i = 0; i < allFields.length; i++) {
+               let field = allFields[i];
+
+               //Check for correct type
+               if (numberFields.includes(field)) {
+                    if (typeof formData[field] != "number") {
+                         formData[field] = parseInt(formData[field]);
+                    }
+               }
+
+               //Check not empty
+               if (formData[field] == "") {
+                    return false;
                }
           }
 

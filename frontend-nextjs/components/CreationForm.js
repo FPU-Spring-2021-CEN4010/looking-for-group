@@ -3,11 +3,12 @@ import useSWR, { mutate } from 'swr';
 
 function CreationForm({
      title,
+     initialValues,
      hideContact = false,
      funcState,
      funcSubmit
 }) {
-     const initialFormData = {    
+     const initialFormData = initialValues || {    
           Comm: "1",
           Contact_Desc: "",
           Game_Mode: "1",
@@ -19,7 +20,7 @@ function CreationForm({
           Region: "1"      
      }
 
-     if (hideContact) {
+     if (hideContact && initialFormData.Contact_Desc) {
           delete initialFormData.Contact_Desc;
      }
 
@@ -207,6 +208,7 @@ function CreationForm({
                <div className="gameOptions">
                     <label for={name}>{name}:</label>
                     <select onChange={handleChange} name={db} value={formData[db]}  id={db}>
+                         <option key="empty" value=""></option>
                          {
                               info.map((v) => {
                                    return <option key={v.id} value={v.id}>{v[selector]}</option>
