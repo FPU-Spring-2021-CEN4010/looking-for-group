@@ -8,9 +8,7 @@ class CreateNewGroup extends NavigationComponent {
      constructor(props) {
           super(props);
 
-          this.state = {
-               ...this.state,
-     
+          this.state = {     
                Comm: "1",
                Contact_Desc: "",
                Game_Mode: "1",
