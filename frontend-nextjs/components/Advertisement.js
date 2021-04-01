@@ -2,7 +2,7 @@ import DeleteGroup from './popups/DeleteGroup'
 import ModifyGroup from './popups/ModifyGroup'
 import { useState } from 'react'
 
-function Advertisement({values}) {
+function Advertisement({values, filterFunc}) {
 
      const initialFormData = Object.freeze({
           modify: false,
@@ -51,7 +51,7 @@ function Advertisement({values}) {
      }
      function displayDelete(){
           if(formData.delete == true){
-               return <DeleteGroup close={hideDelete}/>
+               return <DeleteGroup close={hideDelete} id={values.id} filterFunc={filterFunc} />
           }
           return ;
      }

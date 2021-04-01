@@ -32,6 +32,10 @@ module.exports = async (ctx, next) => {
                          //console.log(sanitizedEntity.Active_User.id)
                          //console.log(uid)
 
+                         if (!sanitizedEntity || !sanitizedEntity.Active_User) {
+                              resolve(ctx.unauthorized("You do not appear to be the owner of this post!"))
+                         }
+
                          if (sanitizedEntity.Active_User.id == uid) {
                               resolve(await next());
                          } else {
