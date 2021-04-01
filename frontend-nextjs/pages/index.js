@@ -1,5 +1,4 @@
 import Header from '../components/Header'
-import ModifyGroup  from '../components/popups/ModifyGroup'
 import Navigation from '../components/Navigation'
 import ViewAdvertisements from "../components/ViewAdvertisements"
 import DisplayName from "../components/popups/DisplayName"

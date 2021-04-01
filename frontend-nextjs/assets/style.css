@@ -242,7 +242,7 @@
      visibility: visible;
 }
 
-#filterBorder {
+.navigation.filter {
      border-bottom: 1px solid black;
 }
 

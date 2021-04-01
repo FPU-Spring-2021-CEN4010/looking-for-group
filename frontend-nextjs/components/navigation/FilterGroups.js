@@ -15,16 +15,19 @@ class FilterGroup extends NavigationComponent {
                Num_Players: "",
                Platform: "",
                Player_Role: "",
-               Region: ""
+               Region: "",
+
+               specialClass: "filter"
           }
      }
 
      //Verify all data is of the correct type. If its not, fix it and return the updated data.
      validateGroup = () => {
-          let formData = this.state;
+          let formData = {...this.state};
           
           delete formData.css;
           delete formData.open;
+          delete formData.specialClass;
 
           let urlFilter = "";
           let fieldKeys = Object.keys(formData);
@@ -44,7 +47,7 @@ class FilterGroup extends NavigationComponent {
      }
 
      updateState = (state) => {
-          this.setState(state);
+          this.setState({...this.state, ...state});
      }
 
      htmlContent() {

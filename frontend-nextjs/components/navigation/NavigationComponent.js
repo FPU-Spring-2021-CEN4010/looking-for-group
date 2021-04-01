@@ -44,7 +44,7 @@ class NavigationComponent extends React.Component {
      //This component takes in a prop of "title"
      render() {
           return (
-               <div className={"navigation " + this.state.css}>
+               <div className={"navigation " + this.state.css + ((this.state.specialClass) ? " " + this.state.specialClass : "")}>
                     <div className="nav-header" onClick={(event) => {this.toggleDropdown()}}>
                          <h1 className="header-text">{this.props.title}</h1>
                          {this.DropdownArrow()}

@@ -11,7 +11,7 @@ function ViewAdvertisements({data}) {
           } else {
                return (
                     data?.map((v) => {
-                         return <Advertisement values={v} />
+                         return <Advertisement key={v.id} values={v} />
                     })
                )
           }

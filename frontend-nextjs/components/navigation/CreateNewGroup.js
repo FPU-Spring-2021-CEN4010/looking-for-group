@@ -9,6 +9,8 @@ class CreateNewGroup extends NavigationComponent {
           super(props);
 
           this.state = {
+               ...this.state,
+     
                Comm: "1",
                Contact_Desc: "",
                Game_Mode: "1",
@@ -55,9 +57,7 @@ class CreateNewGroup extends NavigationComponent {
 
           axios.post("/advertisments", validFormData).then((res) => {
                if (res.status == 200) {
-                    mutate('/advertisments', async ads => {
-                         return [...ads, res.data];
-                    });
+                    this.props.filterFunc("");
                }
           })
      }

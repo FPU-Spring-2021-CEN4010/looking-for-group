@@ -9,17 +9,7 @@ function CreationForm({
      funcState,
      funcSubmit
 }) {
-     const initialFormData = initialValues || {    
-          Comm: "1",
-          Contact_Desc: "",
-          Game_Mode: "1",
-          Game_Name: "1",
-          Game_Rank: "",
-          Num_Players: "",
-          Platform: "1",
-          Player_Role: "1",
-          Region: "1"      
-     }
+     const initialFormData = initialValues;
 
      if (hideContact && initialFormData.Contact_Desc) {
           delete initialFormData.Contact_Desc;
