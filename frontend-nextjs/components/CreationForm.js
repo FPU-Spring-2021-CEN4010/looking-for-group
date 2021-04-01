@@ -7,17 +7,22 @@ function CreationForm({
      funcState,
      funcSubmit
 }) {
-     const initialFormData = Object.freeze({    
-          Comm: "0",
+     const initialFormData = {    
+          Comm: "1",
           Contact_Desc: "",
-          Game_Mode: "0",
-          Game_Name: "0",
+          Game_Mode: "1",
+          Game_Name: "1",
           Game_Rank: "",
           Num_Players: "",
-          Platform: "0",
-          Player_Role: "0",
-          Region: "0"      
-     });
+          Platform: "1",
+          Player_Role: "1",
+          Region: "1"      
+     }
+
+     if (hideContact) {
+          delete initialFormData.Contact_Desc;
+     }
+
      const [formData, updateFormData] = useState(initialFormData);
 
      const handleChange = (e) => {
@@ -230,7 +235,7 @@ function CreationForm({
                     <div className="gameOptions">
                          <label for="ranks">Ranks:</label>
                          <input onChange={handleChange}
-                              type="text"
+                              type="number"
                               name="Game_Rank"
                               id="ranks"
                               placeholder="Rank Perferred"/>
@@ -243,10 +248,12 @@ function CreationForm({
                     <div className="gameOptions">
                          <label for="playerNum">How many Players:</label>
                          <input onChange={handleChange}
-                              type="text"
+                              type="number"
                               name="Num_Players"
                               id="playerNum"
-                              placeholder="Players Needed"/>
+                              placeholder="Players Needed"
+                              min="1"
+                              max="10"/>
                     </div>
 
                     <div className="gameOptions">
