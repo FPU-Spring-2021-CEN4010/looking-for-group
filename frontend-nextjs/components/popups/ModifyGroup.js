@@ -4,7 +4,12 @@ import CreationForm from "../CreationForm"
 function ModifyGroup({initialValues, close}) {
      const [formData, updateFormData] = useState(initialValues);
 
-     const updateGroup = (state) => {
+     const updateGroup = () => {
+          let updateData = {...formData};
+
+          console.log(updateData);
+
+
           //Do something here
           return
      }
