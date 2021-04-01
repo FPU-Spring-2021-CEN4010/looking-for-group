@@ -29,7 +29,7 @@ function Advertisement({values}) {
 
      function displayModify(){
           if(formData.modify == true){
-               return <ModifyGroup />
+               return <ModifyGroup initialValues={values} />
           }
           return ;
      }
