@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { mutate } from 'swr';
 
 function DeleteGroup({id, close, filterFunc}) {
 
@@ -8,6 +9,7 @@ function DeleteGroup({id, close, filterFunc}) {
           axios.delete("/advertisments/"+id).then((res) => {
                if (res.status == 200) {
                     filterFunc("");
+                    mutate("/advertisments");
                     close();
                }
           }).catch((err) => {

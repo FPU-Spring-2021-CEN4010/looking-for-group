@@ -56,6 +56,7 @@ class CreateNewGroup extends NavigationComponent {
           axios.post("/advertisments", validFormData).then((res) => {
                if (res.status == 200) {
                     this.props.filterFunc("");
+                    mutate("/advertisments");
                }
           })
      }
