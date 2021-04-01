@@ -9,7 +9,7 @@ module.exports = async (ctx, next) => {
           if (typeof cookie != 'undefined') {
                verify(cookie, process.env.JWT_SECRET || "bc080210-a1fa-4ff9-af9e-ea61c35e8360", async (err, decoded) => {
                     if (err) {
-                         return ctx.unauthorized(`There was an error verifying the authentication token.`);
+                         resolve(ctx.unauthorized(`There was an error verifying the authentication token.`));
                     }
 
                     if (!err && decoded) {
@@ -18,7 +18,7 @@ module.exports = async (ctx, next) => {
                     }
                })
           } else {
-               return ctx.unauthorized(`You're not logged in!`);
+               resolve(ctx.unauthorized(`You're not logged in!`));
           }
      });
 };

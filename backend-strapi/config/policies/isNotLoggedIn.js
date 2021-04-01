@@ -13,7 +13,7 @@ module.exports = async (ctx, next) => {
                     }
 
                     if (!err && decoded) {
-                         return ctx.unauthorized(`There is an active cookie, meaning there is already an active section.`);
+                         resolve(ctx.unauthorized(`There is an active cookie, meaning there is already an active section.`));
                     }
                })
           } else {

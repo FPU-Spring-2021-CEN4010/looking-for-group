@@ -10,7 +10,7 @@ module.exports = async (ctx, next) => {
           if (typeof cookie != 'undefined') {
                verify(cookie, process.env.JWT_SECRET || "bc080210-a1fa-4ff9-af9e-ea61c35e8360", async (err, decoded) => {
                     if (err) {
-                         ctx.unauthorized(`There was an error verifying the authentication token.`)
+                         resolve(ctx.unauthorized(`There was an error verifying the authentication token.`));
                     }
                     
                     if (!err && decoded) {
@@ -35,12 +35,12 @@ module.exports = async (ctx, next) => {
                          if (sanitizedEntity.Active_User.id == uid) {
                               resolve(await next());
                          } else {
-                              ctx.unauthorized(`You are not the owner of this post.`)
+                              resolve(ctx.unauthorized(`You are not the owner of this post.`));
                          }
                     }
                })
           } else {
-               ctx.unauthorized(`You do not have a valid cookie.`)
+               resolve(ctx.unauthorized(`You do not have a valid cookie.`));
           }
      });
 };
