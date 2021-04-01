@@ -26,7 +26,7 @@ function HomePage({user}) {
                          <Navigation filterFunc={updateFilter} />
 
                          <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                         <ViewAdvertisements data={data} />
+                         <ViewAdvertisements data={data} filterFunc={updateFilter} />
                     </div>
                </div>
                
@@ -39,7 +39,7 @@ function HomePage({user}) {
                          <Navigation filterFunc={updateFilter} />
 
                          <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                         <ViewAdvertisements data={data} />
+                         <ViewAdvertisements data={data} filterFunc={updateFilter} />
                     </div>
 
                     <DisplayName />
