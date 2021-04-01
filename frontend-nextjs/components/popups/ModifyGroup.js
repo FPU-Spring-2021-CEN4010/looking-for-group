@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import CreationForm from "../CreationForm"
 
 function ModifyGroup({initialValues}) {
@@ -10,7 +11,9 @@ function ModifyGroup({initialValues}) {
 
      return ( 
           <div>
-               <CreationForm initialValues={formData} funcState={updateFormData} funcSubmit={updateGroup} title="" hideContact={false} />
+               <div className="popup modGroup">                    
+                    <CreationForm initialValues={formData} funcState={updateFormData} funcSubmit={updateGroup} title="" hideCancel={false} />
+               </div>
           </div>
      )
 }

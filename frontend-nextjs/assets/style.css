@@ -91,6 +91,7 @@
      
      margin-top: 2px;
      margin-bottom: 10px;
+    
 }
 
 #playerNum {
@@ -98,9 +99,11 @@
      height: 15px;
 }
 
-.btnSubmit {
+.btnSubmit, .btnCancel {
      width: 150px;
      text-align: center;
+
+     margin: 0px 2px;
 }
 
 /*************************
@@ -220,6 +223,12 @@
      position: fixed;
      left: 0;
      top: 0;
+}
+
+.popup.modGroup 
+{
+     left: 37%;
+     width: 900px;
 }
 
 /*************************

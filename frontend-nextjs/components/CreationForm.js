@@ -6,6 +6,7 @@ function CreationForm({
      title,
      initialValues,
      hideContact = false,
+     hideCancel = true,
      funcState,
      funcSubmit
 }) {
@@ -215,11 +216,8 @@ function CreationForm({
                <div id="creationForm">
                     
                     <PopulateSelect info={data.Comms} db='Comm' name="Comm" />
-
                     <PopulateSelect info={data.Games} db='Game_Name' name="Game Name" />
-
-                    <PopulateSelect info={data.Game_Modes} db='Game_Mode' name="Game Mode" />
-          
+                    <PopulateSelect info={data.Game_Modes} db='Game_Mode' name="Game Mode" />          
                     <PopulateSelect info={data.Platforms} db='Platform' name="Platform" />
                   
 
@@ -232,8 +230,7 @@ function CreationForm({
                               placeholder="Rank Perferred"/>
                     </div>
 
-                    <PopulateSelect info={data.Player_Roles} db='Player_Role' name="Player Role" />
-               
+                    <PopulateSelect info={data.Player_Roles} db='Player_Role' name="Player Role" />               
                     <PopulateSelect info={data.Regions} db='Region' name="Region" />
 
                     <div className="gameOptions">
@@ -262,7 +259,9 @@ function CreationForm({
 
                     <div className="submitWrapper">
                          <button className="btnSubmit" onClick={funcSubmit} type="submit">Submit</button>
+                         <button className="btnCancel" hidden={hideCancel} onClick={funcSubmit} type="submit">Cancel</button>
                     </div>
+
                </div>
           </div>
      )
