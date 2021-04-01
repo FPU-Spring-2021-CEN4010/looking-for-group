@@ -27,15 +27,31 @@ function Advertisement({values}) {
           });
      }
 
+     function hideModify() {
+          updateFormData({
+               ...formData,
+
+               modify: false
+          });
+     }
+
+     function hideDelete() {
+          updateFormData({
+               ...formData,
+
+               delete: false
+          });
+     }
+
      function displayModify(){
           if(formData.modify == true){
-               return <ModifyGroup initialValues={values} />
+               return <ModifyGroup initialValues={values} close={hideModify} />
           }
           return ;
      }
      function displayDelete(){
           if(formData.delete == true){
-               return <DeleteGroup />
+               return <DeleteGroup close={hideDelete}/>
           }
           return ;
      }
