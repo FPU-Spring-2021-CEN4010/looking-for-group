@@ -36,7 +36,7 @@ function ModifyGroup({id, initialValues, close}) {
 
           console.log(updateData);
 
-          axios.put("/advertisements/"+id, updateData).then((res) => {
+          axios.put("/advertisments/"+id, updateData).then((res) => {
                if (res.status == 200) {
                     mutate("/advertisements");
                     close;
