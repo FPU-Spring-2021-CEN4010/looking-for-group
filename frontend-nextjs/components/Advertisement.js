@@ -45,7 +45,7 @@ function Advertisement({values, filterFunc}) {
 
      function displayModify(){
           if(formData.modify == true){
-               return <ModifyGroup initialValues={values} close={hideModify} />
+               return <ModifyGroup initialValues={values} id={values.id} close={hideModify} />
           }
           return ;
      }
