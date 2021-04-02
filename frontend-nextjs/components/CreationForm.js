@@ -8,7 +8,8 @@ function CreationForm({
      hideContact = false,
      hideCancel = true,
      funcState,
-     funcSubmit
+     funcSubmit,
+     funcClose
 }) {
      const initialFormData = initialValues;
 
@@ -194,11 +195,20 @@ function CreationForm({
                }
           });
 
+          const modify = () => {
+               if (hideCancel) {
+                    return <option key="empty" value=""></option>
+               }
+               return;
+          }
+
           return (
                <div className="gameOptions">
                     <label htmlFor={name}>{name}:</label>
-                    <select onChange={handleChange} name={db} value={formData[db]}  id={db}>
-                         <option key="empty" value=""></option>
+                    <select onChange={handleChange} name={db} defaultValue={formData[db].id}  id={db}>
+                         {
+                              modify()
+                         }
                          {
                               info.map((v) => {
                                    return <option key={v.id} value={v.id}>{v[selector]}</option>
@@ -227,7 +237,8 @@ function CreationForm({
                               type="number"
                               name="Game_Rank"
                               id="ranks"
-                              placeholder="Rank Perferred"/>
+                              placeholder="Rank Perferred"
+                              value={formData.Game_Rank}/>
                     </div>
 
                     <PopulateSelect info={data.Player_Roles} db='Player_Role' name="Player Role" />               
@@ -241,7 +252,8 @@ function CreationForm({
                               id="playerNum"
                               placeholder="Players Needed"
                               min="1"
-                              max="10"/>
+                              max="10"
+                              value={formData.Num_Players}/>
                     </div>
 
                     <div className="gameOptions">
@@ -254,12 +266,13 @@ function CreationForm({
                               name="Contact_Desc"
                               placeholder="Join Instructions"
                               rows="4"
-                              cols="50"/>
+                              cols="50"
+                              value={formData.Contact_Desc}/>
                     </div>
 
                     <div className="submitWrapper">
                          <button className="btnSubmit" onClick={funcSubmit} type="submit">Submit</button>
-                         <button className="btnCancel" hidden={hideCancel} onClick={funcSubmit} type="submit">Cancel</button>
+                         <button className="btnCancel" hidden={hideCancel} onClick={funcClose} type="submit">Cancel</button>
                     </div>
 
                </div>
