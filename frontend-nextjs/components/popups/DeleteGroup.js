@@ -1,11 +1,20 @@
 import axios from 'axios';
 import { mutate } from 'swr';
+import { useState } from 'react'
 
 function DeleteGroup({id, close, filterFunc}) {
 
+
+     const [invalid, updateInvalid] = useState(false);
+
+     function showInvalid() {
+          updateInvalid(true);
+     }
+
      const handleDelete = (e) => {
           e.preventDefault();
-
+          console.log("running handle delete");
+          
           axios.delete("/advertisments/"+id).then((res) => {
                if (res.status == 200) {
                     filterFunc("");
@@ -13,12 +22,30 @@ function DeleteGroup({id, close, filterFunc}) {
                     close();
                }
           }).catch((err) => {
+               console.log("running catch error");
                if (err.message == "Request failed with status code 401") {
-                    close();
+                    console.log("running error message");
+                    /*close();*/
+                    showInvalid();
                }
           });
      }
 
+
+     if(invalid){
+          return (
+               <div>
+                    <div className="popup">
+                         <h3>Invalid Owner!</h3>
+      
+                         <p>You are not the owner of this group!</p>
+      
+                         <button id="invalidOwnerPopup" type="button" onClick={close}>Close</button>
+                    </div>
+               </div>
+          )
+     }
+     else{
      return (
           <div>
                <div className="popup">
@@ -31,7 +58,8 @@ function DeleteGroup({id, close, filterFunc}) {
                     <button id="cancelDelete" type="button" onClick={close}>Cancel</button>
                </div>
           </div>
-     )
+          )
+     }
 }
 
 module.exports = DeleteGroup
