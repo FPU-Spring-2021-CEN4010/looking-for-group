@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = async (ctx, next) => {
      return new Promise(async (resolve, reject) => {
           if (ctx.state.user) {
-               resolve(await next());
+               return resolve(await next());
           }
 
           let cookie = ctx.cookies.get("Authorization", {signed: true});
