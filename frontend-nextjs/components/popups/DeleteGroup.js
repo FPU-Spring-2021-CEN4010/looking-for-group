@@ -13,7 +13,6 @@ function DeleteGroup({id, close, filterFunc}) {
 
      const handleDelete = (e) => {
           e.preventDefault();
-          console.log("running handle delete");
           
           axios.delete("/advertisments/"+id).then((res) => {
                if (res.status == 200) {
@@ -22,7 +21,6 @@ function DeleteGroup({id, close, filterFunc}) {
                     close();
                }
           }).catch((err) => {
-               console.log("running catch error");
                if (err.message == "Request failed with status code 401") {
                     console.log("running error message");
                     /*close();*/

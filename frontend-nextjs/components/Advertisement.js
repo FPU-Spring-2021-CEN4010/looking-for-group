@@ -42,22 +42,13 @@ function Advertisement({values, filterFunc, fields, user}) {
 
      function displayModify() {
           if (formData.modify == true) {
-               return <ModifyGroup initialValues={values}
-                    id={
-                         values.id
-                    }
-                    close={hideModify}
-                    fields={fields}/>
+               return <ModifyGroup initialValues={values} id={values.id} close={hideModify} fields={fields} filterFunc={filterFunc}/>
           }
           return;
      }
      function displayDelete() {
           if (formData.delete == true) {
-               return <DeleteGroup close={hideDelete}
-                    id={
-                         values.id
-                    }
-                    filterFunc={filterFunc}/>
+               return <DeleteGroup close={hideDelete} id={values.id} filterFunc={filterFunc}/>
           }
           return;
      }

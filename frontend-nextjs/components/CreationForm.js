@@ -26,7 +26,7 @@ function PopulateSelect({info, db, name, formData, handleChange, hideCancel, hid
      return (
           <div className="gameOptions">
                <label htmlFor={db}>{name}:</label>
-               <select onChange={handleChange} name={db} defaultValue={formData[db].id} value={formData[db].id} id={db}>
+               <select onChange={handleChange} name={db} value={formData[db].id} id={db}>
                     {
                          modify()
                     }
