@@ -38,6 +38,16 @@ module.exports = {
           }
      },
 
+     async update(ctx) {
+          const { id } = ctx.params;
+
+          if (typeof ctx.request.body.Active_User != 'undefined') delete ctx.request.body.Active_User;
+      
+          let entity = await strapi.services.advertisments.update({ id }, ctx.request.body);
+      
+          return sanitizeEntity(entity, { model: strapi.models.advertisments });
+     },
+
      async delete(ctx) {
           const {id} = ctx.params;
 
