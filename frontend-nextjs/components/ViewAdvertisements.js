@@ -1,7 +1,7 @@
 import useSWR, { mutate } from "swr";
 import Advertisement from "./Advertisement"
 
-function ViewAdvertisements({data, filterFunc, fields}) {
+function ViewAdvertisements({data, filterFunc, fields, user}) {
 
      const showAds = () => {
           if (typeof data == 'undefined' || data == {} || data == [] || !data || data == "") {
@@ -11,7 +11,7 @@ function ViewAdvertisements({data, filterFunc, fields}) {
           } else {
                return (
                     data?.map((v) => {
-                         return <Advertisement key={v.id} values={v} filterFunc={filterFunc} fields={fields}/>
+                         return <Advertisement key={v.id} values={v} filterFunc={filterFunc} fields={fields} user={user} />
                     })
                )
           }

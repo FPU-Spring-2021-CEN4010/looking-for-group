@@ -27,7 +27,7 @@ function HomePage({user, fields}) {
                          <Navigation filterFunc={updateFilter} fields={fields} />
 
                          <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                         <ViewAdvertisements data={data} filterFunc={updateFilter} fields={fields}/>
+                         <ViewAdvertisements data={data} filterFunc={updateFilter} fields={fields} user={user} />
                     </div>
                </div>
                
@@ -40,7 +40,7 @@ function HomePage({user, fields}) {
                          <Navigation filterFunc={updateFilter} fields={fields} />
 
                          <p id="advertisementText"><strong>Viewing All Groups</strong></p>
-                         <ViewAdvertisements data={data} filterFunc={updateFilter} fields={fields} />
+                         <ViewAdvertisements data={data} filterFunc={updateFilter} fields={fields} user={user} />
                     </div>
 
                     <DisplayName />
