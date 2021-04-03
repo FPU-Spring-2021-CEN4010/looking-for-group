@@ -1,0 +1,16 @@
+{
+  "name": "cleanup",
+  "version": "1.0.0",
+  "description": "Daily task managed by PM2 to clean the old users and posts from the system at a specified time. Will remove anything over 24 hours old. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Braden Cariaga, Atef Alhassan, David Dawson",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "node-schedule": "^2.0.0"
+  }
+}
