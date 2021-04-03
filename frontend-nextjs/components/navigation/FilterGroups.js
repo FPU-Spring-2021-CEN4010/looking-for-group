@@ -53,7 +53,7 @@ class FilterGroup extends NavigationComponent {
      htmlContent() {
           return (
                <div>
-                    <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.filterGroup} title="" hideContact={true} />
+                    <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.filterGroup} title="" hideContact={true} fields={this.props.fields} />
                </div>
           )
      }

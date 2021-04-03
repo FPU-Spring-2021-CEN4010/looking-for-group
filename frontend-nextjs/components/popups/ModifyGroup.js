@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import CreationForm from "../CreationForm"
 
-function ModifyGroup({id, initialValues, close}) {
+function ModifyGroup({id, initialValues, close, fields}) {
      const [formData, updateFormData] = useState(initialValues);
 
      const verifyValues = () => {
@@ -53,7 +53,7 @@ function ModifyGroup({id, initialValues, close}) {
      return ( 
           <div>
                <div className="popup modGroup">                    
-                    <CreationForm initialValues={formData} funcState={updateFormData} funcSubmit={updateGroup} title="" hideCancel={false} funcClose={close} />
+                    <CreationForm initialValues={formData} funcState={updateFormData} funcSubmit={updateGroup} title="" hideCancel={false} funcClose={close} fields={fields} />
                </div>
           </div>
      )

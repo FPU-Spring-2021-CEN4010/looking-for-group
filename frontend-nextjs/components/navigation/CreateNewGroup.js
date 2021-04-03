@@ -68,7 +68,7 @@ class CreateNewGroup extends NavigationComponent {
      htmlContent = () => {
           return (
                <div>
-                    <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.createGroup} title="" hideContact={false}/>
+                    <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.createGroup} title="" hideContact={false} fields={this.props.fields}/>
                </div>
           )
      }
