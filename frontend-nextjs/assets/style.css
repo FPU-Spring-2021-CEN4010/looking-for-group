@@ -111,7 +111,7 @@
 *************************/
 #advertisementText {
      font-size: 22pt;
-     
+
      font-family: 'Courier New', Courier, monospace;
      color: white;
      text-shadow: 1px 1px black;
@@ -131,9 +131,8 @@
      border-style: solid;
      border-color: black;
 
-     width: 550px;
-     
-     margin: 2px;
+     width: calc(33.33% - 5px);
+     height: auto;
 
      font-size: 9pt;
      font-family: 'Courier New', Courier, monospace;
@@ -154,16 +153,20 @@
      flex-direction: row;
      flex-wrap: wrap;
 
-     justify-content: space-between;
+     width: 100%;
+     height: auto;
+
+     justify-content: flex-start;
 }
 
 .column1 {
      height: 100%;
+     width: 30%;
 }
 
 .column2 {
      height: 100%;
-     width: 50%;
+     width: 90%;
 }
 
 /*************************

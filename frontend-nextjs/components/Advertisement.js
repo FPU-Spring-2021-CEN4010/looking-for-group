@@ -67,7 +67,6 @@ function Advertisement({values, filterFunc, fields, user}) {
      }
 
      return (
-          <div>
                <div className="advertisement">
                     {showButtons()}
                     <div className="column1">
@@ -105,10 +104,9 @@ function Advertisement({values, filterFunc, fields, user}) {
                               values.Contact_Desc
                          }</p>
                     </div>
+                    {displayModify()}
+                    {displayDelete()}
                </div>
-               {displayModify()}
-               {displayDelete()}
-          </div>
 
      )
 
