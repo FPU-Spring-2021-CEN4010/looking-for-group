@@ -56,7 +56,7 @@ function Advertisement({values, filterFunc, fields, user}) {
      function showButtons() {
           if (user?.uid == values.Active_User.id) {
                return (
-                    <div>
+                    <div className="alter-buttons">
                          <button className="edit-button" type="button" onClick={showModify}>&#9999;</button>
                          <button className="delete-button" type="button" onClick={showDelete}>&times;</button>
                     </div>
@@ -69,41 +69,37 @@ function Advertisement({values, filterFunc, fields, user}) {
      return (
                <div className="advertisement">
                     {showButtons()}
-                    <div className="column1">
 
-                         <p>Game: {
-                              values.Game_Name.Title
-                         }</p>
-                         <p>Platform: {
-                              values.Platform.Name
-                         }</p>
-                         <p>Player Role: {
-                              values.Player_Role.Role
-                         }</p>
-                         <p>Game Mode: {
-                              values.Game_Mode.Title
-                         }</p>
-                         <p>Comms: {
-                              values.Comm.Type
-                         }</p>
-                    </div>
+                    <p>Game: {
+                         values.Game_Name.Title
+                    }</p>
+                    <p>Platform: {
+                         values.Platform.Name
+                    }</p>
+                    <p>Player Role: {
+                         values.Player_Role.Role
+                    }</p>
+                    <p>Game Mode: {
+                         values.Game_Mode.Title
+                    }</p>
+                    <p>Comms: {
+                         values.Comm.Type
+                    }</p>
 
-                    <div className="column2">
+                    <p>Game Rank: {
+                         values.Game_Rank
+                    }</p>
+                    <p>Region: {
+                         values.Region.Name
+                    }</p>
+                    <p>Looking for {
+                         values.Num_Players
+                    }
+                         more player(s).</p>
+                    <p className="info">Info: {
+                         values.Contact_Desc
+                    }</p>
 
-                         <p>Game Rank: {
-                              values.Game_Rank
-                         }</p>
-                         <p>Region: {
-                              values.Region.Name
-                         }</p>
-                         <p>Looking for {
-                              values.Num_Players
-                         }
-                              more player(s).</p>
-                         <p>Info: {
-                              values.Contact_Desc
-                         }</p>
-                    </div>
                     {displayModify()}
                     {displayDelete()}
                </div>

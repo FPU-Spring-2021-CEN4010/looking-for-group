@@ -28,15 +28,10 @@
 }
 
 .edit-button {
-     position: absolute;
-     right: 31px;
-     top: 0px;
+     display: inline-block;
 }
 
 .delete-button {
-     position: absolute;
-     right: 0px;
-     top: 0px;
      block-size: 23px;
 }
 
@@ -121,18 +116,20 @@
      display: flex;
      position: relative;
      flex-direction: row;
-     flex-wrap: nowrap;     
+     flex-wrap: wrap;     
 
      align-content: center;
      align-items: center;
 
-     justify-content: center;
+     justify-content: flex-start;
 
      border-style: solid;
      border-color: black;
 
-     width: calc(33.33% - 5px);
+     width: calc(33.33% - 16px);
      height: auto;
+
+     margin: 5px;
 
      font-size: 9pt;
      font-family: 'Courier New', Courier, monospace;
@@ -141,10 +138,23 @@
      text-shadow: 1px 1px black;
 }
 
-.advertisement div {
+.advertisement p {
+     display: block;
+     width: calc(50% - 10px);
      text-align: left;
-     
-     padding: 0 20px;
+     height: auto;
+
+     margin: 5px;
+}
+
+.advertisement div.alter-buttons {
+     position: absolute;
+     top: 0px;
+     right: 0px;
+}
+
+.advertisement p.info {
+     width: calc(100% - 10px);
 }
 
 .advertisements {
@@ -157,16 +167,6 @@
      height: auto;
 
      justify-content: flex-start;
-}
-
-.column1 {
-     height: 100%;
-     width: 30%;
-}
-
-.column2 {
-     height: 100%;
-     width: 90%;
 }
 
 /*************************
