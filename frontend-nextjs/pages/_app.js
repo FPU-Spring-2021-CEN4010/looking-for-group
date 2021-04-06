@@ -2,7 +2,7 @@ import '../assets/style.css'
 import useSWR, { SWRConfig } from 'swr'
 import axios from 'axios'
 
-axios.defaults.baseURL = "http://abdapi.bcariaga.me/"
+axios.defaults.baseURL = "http://0.0.0.0:1337/"
 axios.defaults.withCredentials = true;
 
 // This default export is required in a new `pages/_app.js` file.
