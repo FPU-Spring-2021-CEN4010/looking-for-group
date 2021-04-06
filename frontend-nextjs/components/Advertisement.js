@@ -8,6 +8,9 @@ function Advertisement({values, filterFunc, fields, user}) {
 
      const [formData, updateFormData] = useState(initialFormData);
 
+     // create helper functions to show/hide the Modify/Delete buttons 
+
+     // show the modify popup
      function showModify() {
           updateFormData({
                ...formData,
@@ -16,6 +19,7 @@ function Advertisement({values, filterFunc, fields, user}) {
           });
      }
 
+     // show the delete popup
      function showDelete() {
           updateFormData({
                ...formData,
@@ -24,6 +28,8 @@ function Advertisement({values, filterFunc, fields, user}) {
           });
      }
 
+
+     // hide the modify popup
      function hideModify() {
           updateFormData({
                ...formData,
@@ -32,6 +38,7 @@ function Advertisement({values, filterFunc, fields, user}) {
           });
      }
 
+     // hide the delete popup
      function hideDelete() {
           updateFormData({
                ...formData,
@@ -40,21 +47,26 @@ function Advertisement({values, filterFunc, fields, user}) {
           });
      }
 
+
+     // display the modify popup, with the advertisements' current values
      function displayModify() {
-          if (formData.modify == true) {
+          if (formData.modify == true) { // show the modify popup with the values from the current advertisement
                return <ModifyGroup initialValues={values} id={values.id} close={hideModify} fields={fields} filterFunc={filterFunc}/>
           }
           return;
      }
+
+     // display the delete popup
      function displayDelete() {
-          if (formData.delete == true) {
+          if (formData.delete == true) { // show the delete popup
                return <DeleteGroup close={hideDelete} id={values.id} filterFunc={filterFunc}/>
           }
           return;
      }
-
+     
+     // display the buttons
      function showButtons() {
-          if (user?.uid == values.Active_User.id) {
+          if (user?.uid == values.Active_User.id) { // show the edit/delete buttons 
                return (
                     <div className="alter-buttons">
                          <button className="edit-button" type="button" onClick={showModify}>&#9999;</button>
@@ -66,6 +78,7 @@ function Advertisement({values, filterFunc, fields, user}) {
           }
      }
 
+     // the actual advertisement along with each the gameOptions listed
      return (
                <div className="advertisement">
                     {showButtons()}

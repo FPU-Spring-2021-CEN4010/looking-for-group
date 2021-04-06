@@ -16,21 +16,25 @@
      font-size: 30px;
 }
 
+/* sets the font to a courier, colour to white, and a small shadow under the text */
 .color-text-white {
      font-family: 'Courier New', Courier, monospace;     
 
      color: white;
      text-shadow: 1px 1px black;
 }
-/*  */
+
+/* Make the how to use button borderless */
 .HTU-button {
     border: none;
 }
 
+/* set the display of the edit button to be an inline-block */
 .edit-button {
      display: inline-block;
 }
 
+/* set the block display size of the delete button */
 .delete-button {
      block-size: 23px;
 }
@@ -39,6 +43,7 @@
 *     Creation Form      *
 *************************/
 
+/* the parent main creation form */
 #creationForm {
      display: flex;
      
@@ -50,6 +55,7 @@
      justify-content: space-between;
 }
 
+/* game options */
 .gameOptions {
      display: flex;
 
@@ -65,23 +71,28 @@
      width: 20%;
 }
 
+/* the select boxes in the gameOptions */
 .gameOptions select {
      width: 125px;
 }
 
+/* the label text in the gameOptions */
 .gameOptions label {
      width: 125px;
 }
 
+/* the text areas in the gameOptions */
 .gameOptions textarea {
      resize: none;
      max-width: 85%;
 }
 
+/* the input boxes in the gameOptions */
 .gameOptions input {
      width: 125px;
 }
 
+/* the submit wrappers in the gameOptions */
 .submitWrapper {
      width: 100%;
      
@@ -89,11 +100,13 @@
      margin-bottom: 10px;
 }
 
+/* the player numbers element in the gameOptions */
 #playerNum {
      justify-content: center;
      height: 15px;
 }
 
+/* some properties for the buttons */
 .btnSubmit, .btnCancel {
      width: 150px;
      text-align: center;
@@ -104,6 +117,8 @@
 /*************************
 *     Advertisements     *
 *************************/
+
+/* the text displayed in the advertisements */
 #advertisementText {
      font-size: 22pt;
 
@@ -112,6 +127,7 @@
      text-shadow: 1px 1px black;
 }
 
+/* each individual advertisement  */
 .advertisement {
      display: flex;
      position: relative;
@@ -138,6 +154,7 @@
      text-shadow: 1px 1px black;
 }
 
+/* paragraph elements in each advertisement */
 .advertisement p {
      display: block;
      width: calc(50% - 10px);
@@ -147,16 +164,19 @@
      margin: 5px;
 }
 
+/* alter buttons (Delete/Modfiy) in each advertisement */
 .advertisement div.alter-buttons {
      position: absolute;
      top: 0px;
      right: 0px;
 }
 
+/* paragraph info elements in each advertisement */
 .advertisement p.info {
      width: calc(100% - 10px);
 }
 
+/* the advertisements as a collection */
 .advertisements {
      display: flex;
 
@@ -197,21 +217,25 @@
      border-radius: 20px;
 }
 
+/* popup elements */
 .popup > p, .popup > h3, .popup > input, .popup > button {
      padding: 0;
      margin: 5px 0;
 }
 
+/* popup header 3 elements */
 .popup > h3 {
      font-weight: bold;
 }
 
+/* popup input boxes and buttons */
 .popup > input, .popup > button {
      padding: 5px;
 
      border-radius: 10px;
 }
 
+/* when the popup input box is focused on (active) */
 .popup > input:focus {
      outline: none;
      border-color: black;
@@ -222,6 +246,7 @@
      font-size: 10pt;
 }
 
+/* background of the popup */
 .popup-bg {
      background-color: rgba(0, 0, 0, 0.4);
      height: 100%;
@@ -231,6 +256,7 @@
      top: 0;
 }
 
+/* the modify group popup */
 .popup.modGroup 
 {
      background-color: rgb(0, 0, 0, 0.7);
@@ -302,6 +328,7 @@ body {
      visibility: hidden;
 }
 
+/* blurs the background */
 .blur {
      filter: blur(8px);
      -webkit-filter: blur(8px);

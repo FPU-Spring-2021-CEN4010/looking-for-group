@@ -4,33 +4,32 @@ import { useState } from 'react'
 
 function DeleteGroup({id, close, filterFunc}) {
 
-
      const [invalid, updateInvalid] = useState(false);
 
+     // show the invalid popup
      function showInvalid() {
           updateInvalid(true);
      }
 
+     // function to handle the deletion of an advertisement
      const handleDelete = (e) => {
           e.preventDefault();
           
+          // sent an axios request to delete the advertisement
           axios.delete("/advertisments/"+id).then((res) => {
-               if (res.status == 200) {
-                    filterFunc("");
+               if (res.status == 200) { // request successful purge it
+                    filterFunc(""); 
                     mutate("/advertisments");
                     close();
                }
-          }).catch((err) => {
+          }).catch((err) => { // you got error
                if (err.message == "Request failed with status code 401") {
-                    console.log("running error message");
-                    /*close();*/
-                    showInvalid();
+                    showInvalid(); // permission error
                }
           });
      }
-
-
-     if(invalid){
+     
+     if(invalid){ // html for the invalid popup where we instruct the user that they are NOT the owner of this group so they cannot delete it
           return (
                <div>
                     <div className="popup">
@@ -44,7 +43,7 @@ function DeleteGroup({id, close, filterFunc}) {
           )
      }
      else{
-     return (
+     return ( // html for the delete group popup
           <div>
                <div className="popup">
                     <h3>Delete Group: #<span id="groupID">2131</span></h3>

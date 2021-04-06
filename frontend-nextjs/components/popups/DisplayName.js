@@ -8,10 +8,9 @@ function DisplayName() {
      })
      const [formData, updateFormData] = useState(initialFormData);
 
+     // function to handle any changes made to the display name
      const handleChange = (e) => {
           const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value.trim();
-
-          // console.log(e.target.name + " value changed to " + e.target.value);
 
           updateFormData({
                ...formData,
@@ -23,15 +22,15 @@ function DisplayName() {
      const handleSubmit = (e) => {
           e.preventDefault();
 
-        //  console.log(formData.Display_Name)
-
-          if (formData.Display_Name != "") {
+          // send a request to set the user's display name
+          if (formData.Display_Name != "") { // make sure their name isn't empty
                axios.post("/user/auth/login", {Display_Name: formData.Display_Name}).then((res) => {
-                    mutate("/user/auth");
+                    mutate("/user/auth"); // request was successful, let them in
                })
           }
      }
 
+     // return html
     return (
           <div>
                <div className="popup">
