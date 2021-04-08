@@ -7,6 +7,7 @@ class FilterGroup extends NavigationComponent {
      constructor(props) {
           super(props);
 
+          // default properties
           this.state = {
                Comm: "",
                Game_Mode: "",
@@ -25,10 +26,12 @@ class FilterGroup extends NavigationComponent {
      validateGroup = () => {
           let formData = {...this.state};
           
+          // remove unused properties
           delete formData.css;
           delete formData.open;
           delete formData.specialClass;
 
+          // validate the group types and the urlFilter
           let urlFilter = "";
           let fieldKeys = Object.keys(formData);
           for (let i = 0; i < fieldKeys.length; i++) {
@@ -38,18 +41,23 @@ class FilterGroup extends NavigationComponent {
                }
           }
 
+          // return the group filters
           return urlFilter;
      }
 
+     // filter group function
      filterGroup = () => {
+          // ensure the data is valid
           let validFormData = this.validateGroup();
           this.props.filterFunc(`?${validFormData}`);
      }
 
+     // update state
      updateState = (state) => {
           this.setState({...this.state, ...state});
      }
 
+     // return the form to filter groups
      htmlContent() {
           return (
                <div>

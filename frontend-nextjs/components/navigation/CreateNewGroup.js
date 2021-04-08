@@ -8,6 +8,7 @@ class CreateNewGroup extends NavigationComponent {
      constructor(props) {
           super(props);
 
+          // default properties 
           this.state = {     
                Comm: "1",
                Contact_Desc: "",
@@ -25,11 +26,14 @@ class CreateNewGroup extends NavigationComponent {
      validateGroup = () => {
           let formData = this.state;
 
+          // remove unused properties
           delete formData.css;
           delete formData.open;
-          
+
+          // declare the numerical value selects
           let numberFields = ["Comm", "Game_Mode", "Game_Name", "Game_Rank", "Num_Players", "Platform", "Player_Role", "Region"]
 
+          // loop through each value and validate that they are of the correct type
           let allFields = Object.keys(formData);
           for (let i = 0; i < allFields.length; i++) {
                let field = allFields[i];
@@ -47,24 +51,30 @@ class CreateNewGroup extends NavigationComponent {
                }
           }
 
+          // return data
           return formData;
      }
 
+     // create group function
      createGroup = () => {
+          // make sure the data entered is valid 
           let validFormData = this.validateGroup();
 
+          // send a request to create a new group
           axios.post("/advertisments", validFormData).then((res) => {
-               if (res.status == 200) {
+               if (res.status == 200) { // request successful
                     this.props.filterFunc("");
                     mutate("/advertisments");
                }
           })
      }
 
+     // update the state
      updateState = (state) => {
           this.setState(state);
      }
 
+     // return html
      htmlContent = () => {
           return (
                <div>

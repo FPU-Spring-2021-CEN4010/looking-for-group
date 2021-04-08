@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 
+// this function pulls our selection data from our API, and populates the select elements in the creation forms.
 function PopulateSelect({info, db, name, formData, handleChange, hideCancel, hideContact}) {
      let selector = "Name";
      let testKeys = Object.keys(info[0]);
@@ -14,6 +15,7 @@ function PopulateSelect({info, db, name, formData, handleChange, hideCancel, hid
           }
      });
 
+     // update the advertisement's values
      const modify = () => {
           if (hideCancel && hideContact) {
                return <option key="empty" value=""></option>
@@ -21,8 +23,7 @@ function PopulateSelect({info, db, name, formData, handleChange, hideCancel, hid
           return;
      }
 
-     //console.log(formData[db])
-
+     // display the html for the gameOptions for the creation forms
      return (
           <div className="gameOptions">
                <label htmlFor={db}>{name}:</label>
@@ -59,6 +60,7 @@ function CreationForm({
 
      const [formData, updateFormData] = useState(initialFormData);
 
+     // check if an option was changed
      const handleChange = (e) => {
           const value = e.target.type === 'textarea' ? e.target.value : e.target.value.trim();
           
@@ -69,6 +71,7 @@ function CreationForm({
           });
      }
 
+     // set the state
      useEffect(() => {
           funcState(formData);
      }, [formData]);
@@ -79,12 +82,14 @@ function CreationForm({
 
                <div id="creationForm">
                     
+                    { /* populate the select fields from the API */}
                     <PopulateSelect info={fields.Comms} db='Comm' name="Comm" formData={formData} handleChange={handleChange} hideCancel={hideCancel} hideContact={hideContact} />
                     <PopulateSelect info={fields.Games} db='Game_Name' name="Game Name" formData={formData} handleChange={handleChange} hideCancel={hideCancel} hideContact={hideContact} />
                     <PopulateSelect info={fields.Game_Modes} db='Game_Mode' name="Game Mode" formData={formData} handleChange={handleChange} hideCancel={hideCancel} hideContact={hideContact} />          
                     <PopulateSelect info={fields.Platforms} db='Platform' name="Platform" formData={formData} handleChange={handleChange} hideCancel={hideCancel} hideContact={hideContact} />
                   
 
+                    {/* Rank */}
                     <div className="gameOptions">
                          <label htmlFor="ranks">Ranks:</label>
                          <input onChange={handleChange}
@@ -95,9 +100,11 @@ function CreationForm({
                               value={formData.Game_Rank}/>
                     </div>
 
+                    { /* populate the select fields from the API */}
                     <PopulateSelect info={fields.Player_Roles} db='Player_Role' name="Player Role" formData={formData} handleChange={handleChange} hideCancel={hideCancel} hideContact={hideContact} />               
                     <PopulateSelect info={fields.Regions} db='Region' name="Region" formData={formData} handleChange={handleChange} hideCancel={hideCancel} hideContact={hideContact} />
 
+                    { /* players needed for the group */}
                     <div className="gameOptions">
                          <label htmlFor="playerNum">How many Players:</label>
                          <input onChange={handleChange}
@@ -110,6 +117,7 @@ function CreationForm({
                               value={formData.Num_Players}/>
                     </div>
 
+                    { /* the join instructions and contact description */}
                     <div className="gameOptions">
                          <label htmlFor="joinInstructions"
                               hidden={hideContact}>Info:</label>
@@ -123,6 +131,7 @@ function CreationForm({
                               value={formData.Contact_Desc}/>
                     </div>
 
+                    { /* the buttons */}
                     <div className="submitWrapper">
                          <button className="btnSubmit" onClick={funcSubmit} type="submit">Submit</button>
                          <button className="btnCancel" hidden={hideCancel} onClick={funcClose} type="submit">Cancel</button>

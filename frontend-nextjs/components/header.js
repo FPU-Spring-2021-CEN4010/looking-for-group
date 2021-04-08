@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 function Header({name}) {
 
+     // show the user's display name when they have an active cookie
      function Title({name}) {
           return (name) ? "Welcome to ABD's Looking for Group, " + name : "Welcome to ABD's Looking for Group"
      }
@@ -14,7 +15,7 @@ function Header({name}) {
                alt="ABD logo"
                width={500}
                height={200}
-               />
+               /> 
                <h1 className="center-header-text"><Title name={name} /> <br/>
                Start finding your groups below!
                </h1>
