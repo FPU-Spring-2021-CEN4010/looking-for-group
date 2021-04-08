@@ -4,7 +4,8 @@ import { mutate } from 'swr';
 
 function DisplayName() {
      const initialFormData = Object.freeze({
-          Display_Name: ""
+          Display_Name: "",
+          errorMessage: false
      })
      const [formData, updateFormData] = useState(initialFormData);
 
@@ -24,10 +25,29 @@ function DisplayName() {
 
           // send a request to set the user's display name
           if (formData.Display_Name != "") { // make sure their name isn't empty
-               axios.post("/user/auth/login", {Display_Name: formData.Display_Name}).then((res) => {
-                    mutate("/user/auth"); // request was successful, let them in
-               })
+               try {
+                    axios.post("/user/auth/login", {Display_Name: formData.Display_Name}).then((res) => {
+                         mutate("/user/auth"); // request was successful, let them in
+                    })
+               } catch (err) {
+                    if (err.message == "Request failed with status code 401") {
+                         updateFormData({
+                              ...formData,
+
+                              errorMessage: true
+                         })
+                         return;
+                    }
+                    console.log(err);
+               }
           }
+     }
+
+     const showError = () => {
+          if (formData.errorMessage) {
+               return <p className="error-text">The display name is invalid. Please try again...</p>
+          }
+          return;
      }
 
      // return html
@@ -39,6 +59,8 @@ function DisplayName() {
                          <br />
                          <span className="smallText">Your display name will be active for only 24 hours.</span>
                     </p>
+
+                    {showError()}
 
                     <input type="text" id="Display_Name" name="Display_Name" placeholder="Enter a Display Name" onChange={handleChange} />
                     <button type="button" onClick={handleSubmit}>Submit</button>

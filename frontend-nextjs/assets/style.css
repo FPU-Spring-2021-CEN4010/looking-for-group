@@ -333,3 +333,8 @@ body {
      filter: blur(8px);
      -webkit-filter: blur(8px);
 }
+
+/* Text for error responses from API */
+.error-text {
+     color: red;
+}

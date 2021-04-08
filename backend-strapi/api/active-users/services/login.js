@@ -2,8 +2,6 @@
 
 const { sign, verify } = require('jsonwebtoken');
 
-require('dotenv').config();
-
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-services)
  * to customize this service
@@ -50,11 +48,13 @@ module.exports = {
           //Create JWT
           const jwt = sign(claim, process.env.JWT_SECRET || "bc080210-a1fa-4ff9-af9e-ea61c35e8360", {expiresIn: '1d'});
 
+          console.log(process.env.COOKIE_DOMAIN)
+
           ctx.cookies.set("Authorization", jwt, {
                maxAge: 86400000,
                secure: false,
                httpOnly: true,
-               domain: process.env.COOKIE_DOMAIN || "localhost",
+               domain: process.env.COOKIE_DOMAIN || 'localhost',
                path: "/",
                signed: true,
                sameSite: false
