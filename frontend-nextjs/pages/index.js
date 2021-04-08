@@ -57,7 +57,7 @@ export default HomePage
 
 export async function getServerSideProps(ctx) {
 
-     let {data} = await axios.get("/fields");
+     let {data} = await axios.get("http://localhost:1337/fields");
 
      return {
           props: {
