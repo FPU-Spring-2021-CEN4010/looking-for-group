@@ -54,7 +54,7 @@ module.exports = {
                maxAge: 86400000,
                secure: false,
                httpOnly: true,
-               domain: "localhost",
+               domain: process.env.COOKIE_DOMAIN || "localhost",
                path: "/",
                signed: true,
                sameSite: false

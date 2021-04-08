@@ -93,7 +93,7 @@ function Advertisement({values, filterFunc, fields, user}) {
                          values.Region.Name
                     }</p>
                     <p>Looking for {
-                         values.Num_Players
+                         values.Num_Players + " "
                     }
                          more player(s).</p>
                     <p className="info">Info: {

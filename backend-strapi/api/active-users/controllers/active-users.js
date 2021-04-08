@@ -40,11 +40,7 @@ module.exports = {
 
           //Did our service give us a duplicate error?
           if (entity == "DUPLICATE_ENTRY") {
-               return ctx.send({
-                    statusCode: 400,
-                    error: "Duplicate Entry",
-                    message: "The display name entered has already been added to the database. Please try a unique one..."
-               });
+               return ctx.unauthorized("The display name entered has already been added to the database. Please try a unique one...");
           }
 
           //Send JWT to Client
