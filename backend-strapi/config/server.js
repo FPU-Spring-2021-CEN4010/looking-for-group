@@ -6,4 +6,5 @@ module.exports = ({ env }) => ({
       secret: env('ADMIN_JWT_SECRET', 'befac650e55d194995d6a50547310634'),
     },
   },
+  url: 'https://abdapi.bcariaga.me'
 });
