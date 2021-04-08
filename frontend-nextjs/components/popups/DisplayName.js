@@ -25,11 +25,10 @@ function DisplayName() {
 
           // send a request to set the user's display name
           if (formData.Display_Name != "") { // make sure their name isn't empty
-               try {
-                    axios.post("/user/auth/login", {Display_Name: formData.Display_Name}).then((res) => {
-                         mutate("/user/auth"); // request was successful, let them in
-                    })
-               } catch (err) {
+               axios.post("/user/auth/login", {Display_Name: formData.Display_Name}).then((res) => {
+                    mutate("/user/auth"); // request was successful, let them in
+               }).catch((err) => {
+                    //console.log(err.message)
                     if (err.message == "Request failed with status code 401") {
                          updateFormData({
                               ...formData,
@@ -39,7 +38,7 @@ function DisplayName() {
                          return;
                     }
                     console.log(err);
-               }
+               })
           }
      }
 

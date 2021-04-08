@@ -337,4 +337,6 @@ body {
 /* Text for error responses from API */
 .error-text {
      color: red;
+     font-size: 12px;
+     margin: 0 !important;
 }
