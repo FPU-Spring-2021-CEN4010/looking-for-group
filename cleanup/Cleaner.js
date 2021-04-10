@@ -12,7 +12,7 @@ class Cleaner {
       * @param {*} user 
       * @param {*} pass 
       */
-     constructor(user, pass) {
+     constructor(user, pass, baseURL) {
           this.username = user;
           this.password = pass;
 
@@ -20,7 +20,7 @@ class Cleaner {
 
           //Setup axios with a baseURL
           this.axios = axios.create({
-               baseURL: 'http://localhost:1337/'
+               baseURL: baseURL
           });
      }
 
