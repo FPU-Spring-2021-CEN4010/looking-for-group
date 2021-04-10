@@ -1,3 +1,7 @@
+/**
+ * Database Configuation File.
+ */
+
 module.exports = ({ env }) => ({
   defaultConnection: 'default',
   connections: {

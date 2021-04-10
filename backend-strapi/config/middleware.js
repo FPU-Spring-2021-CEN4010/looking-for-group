@@ -1,3 +1,7 @@
+/**
+ * Middleware Configuration File
+ */
+
 module.exports = {
      settings: {
           cors: {

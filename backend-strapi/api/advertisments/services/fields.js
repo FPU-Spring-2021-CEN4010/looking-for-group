@@ -6,6 +6,12 @@
  */
 
 module.exports = {
+     /**
+      * @method serializeField
+      * @description Take in the field set of data and remove created_by, updated_by, created_at, updated_at, and Advertisments from the entry. 
+      * @param {*} data 
+      * @returns Serialized object without the fields listed above.
+      */
      async serializeField(data) {
 
           let keys = Object.keys(data);
