@@ -4,7 +4,7 @@
   "description": "Daily task managed by PM2 to clean the old users and posts from the system at a specified time. Will remove anything over 24 hours old. ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Braden Cariaga, Atef Alhassan, David Dawson",
   "license": "ISC",
