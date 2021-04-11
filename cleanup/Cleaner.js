@@ -30,7 +30,7 @@ class Cleaner {
       * @returns authToken and sets this instance with an authToken. 
       */
      async login() {
-          return new Promise((resolve, reject) => {
+          return new Promise(async (resolve, reject) => {
                try {
                     //Request the login to the server. 
                     const {data} = await this.axios.post("/auth/local", {
