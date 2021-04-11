@@ -27,22 +27,26 @@ class Cleaner {
      /**
       * @method login
       * @description Cleaner login handler for getting the authentication token from the server.
-      * @returns Does not return anything, but sets this instance with an authToken. 
+      * @returns authToken and sets this instance with an authToken. 
       */
      async login() {
-          try {
-               //Request the login to the server. 
-               const {data} = await this.axios.post("/auth/local", {
-                    identifier: this.username,
-                    password: this.password
-               })
+          return new Promise((resolve, reject) => {
+               try {
+                    //Request the login to the server. 
+                    const {data} = await this.axios.post("/auth/local", {
+                         identifier: this.username,
+                         password: this.password
+                    })
 
-               //Get the login token from the request and store it.
-               this.authToken = data.jwt
-          } catch (err) {
-               //Catch and throw error to caller function. 
-               reject(err);
-          }
+                    //Get the login token from the request and store it.
+                    this.authToken = data.jwt;
+
+                    resolve(this.authToken);
+               } catch (err) {
+                    //Catch and throw error to caller function. 
+                    reject(err);
+               }
+          })
      }
 
      async clean(url) {
@@ -95,12 +99,15 @@ class Cleaner {
       */
      async cleanProcess() {
           try {
+               console.log("Logging in to backend service...")
                //Login to the server.
                await this.login();
 
+               console.log("Cleaning advertisments...")
                //Clean advertisments
                await this.clean("/advertisments");
 
+               console.log("Cleaning active users...")
                //Clean users
                await this.clean("/active-users");
           } catch (err) {
