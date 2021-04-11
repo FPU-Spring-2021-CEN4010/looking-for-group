@@ -16,5 +16,5 @@ const job = Schedule.scheduleJob({hour: process.env.RUNTIME_HR, minute: process.
      //Start cleaning process.
      await dailyCleaner.cleanProcess();
 
-     console.log("Finished daily cleaning process.!");
+     return console.log("Finished daily cleaning process!");
 })
