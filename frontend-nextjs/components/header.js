@@ -1,8 +1,19 @@
 import Image from 'next/image'
 
+/**
+ * @method Header
+ * @description displays the header
+ * @param {*} param0 
+ * @returns 
+ */
 function Header({name}) {
 
-     // show the user's display name when they have an active cookie
+     /**
+      * @method title
+      * @description show the user's display name when they have an active cookie
+      * @param {*} param0 
+      * @returns 
+      */
      function Title({name}) {
           return (name) ? "Welcome to ABD's Looking for Group, " + name : "Welcome to ABD's Looking for Group"
      }

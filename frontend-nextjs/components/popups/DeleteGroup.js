@@ -2,16 +2,29 @@ import axios from 'axios';
 import { mutate } from 'swr';
 import { useState } from 'react'
 
+/**
+ * @method DeleteGroup
+ * @description The Delete Group Popup
+ * @param {*} param0 
+ * @returns 
+ */
 function DeleteGroup({id, close, filterFunc}) {
 
      const [invalid, updateInvalid] = useState(false);
 
-     // show the invalid popup
+     /**
+      * @method showInvalid
+      * @description the invalid popup
+      */
      function showInvalid() {
           updateInvalid(true);
      }
 
-     // function to handle the deletion of an advertisement
+     /**
+      * @method handleDelete
+      * @description handle the deletion of an advertisement
+      * @param {*} e 
+      */
      const handleDelete = (e) => {
           e.preventDefault();
           

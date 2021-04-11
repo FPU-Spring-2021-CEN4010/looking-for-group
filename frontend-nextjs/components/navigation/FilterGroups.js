@@ -22,7 +22,11 @@ class FilterGroup extends NavigationComponent {
           }
      }
 
-     //Verify all data is of the correct type. If its not, fix it and return the updated data.
+      /**
+      * @method validateGroup
+      * @description validates all the data entered is of the correct type, and return the updated data
+      * @returns 
+      */
      validateGroup = () => {
           let formData = {...this.state};
           
@@ -45,7 +49,10 @@ class FilterGroup extends NavigationComponent {
           return urlFilter;
      }
 
-     // filter group function
+     /**
+      * @method filterGroup
+      * @description apply the filters to the system
+      */
      filterGroup = () => {
           // ensure the data is valid
           let validFormData = this.validateGroup();

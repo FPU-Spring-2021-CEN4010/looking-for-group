@@ -1,9 +1,19 @@
 import useSWR, { mutate } from "swr";
 import Advertisement from "./Advertisement"
 
+/**
+ * @method ViewAdvertisements
+ * @description Views advertisements on the sises
+ * @param {*} param0 
+ * @returns 
+ */
 function ViewAdvertisements({data, filterFunc, fields, user}) {
 
-     // show advertisement function
+     /**
+      * @method showAds
+      * @description retrieves advertisements from the server (checks for filters) and displays 
+      * @returns 
+      */
      const showAds = () => {
           if (typeof data == 'undefined' || data == {} || data == [] || !data || data == "") {
                return (

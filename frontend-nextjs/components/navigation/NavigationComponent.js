@@ -17,7 +17,10 @@ class NavigationComponent extends React.Component {
           )
      }
 
-     //Toggle function
+     /**
+      * @method toggleDropdown
+      * @description toggles the drop down
+      */
      toggleDropdown() {
           if (this.state.open == true) {
                this.setState({open: false, css: ""})
@@ -26,8 +29,13 @@ class NavigationComponent extends React.Component {
           }
      }
 
-     //Arrow Icon to be displayed at the left to the option. 
-     //Arrow will be facing down originally. If clicked, the arrow will be facing up. If clicked again, it will be facing down again.
+     
+     //
+     /**
+      * @method DropdownArrow
+      * @description Arrow Icon to be displayed at the left to the option, Arrow will be facing down originally. If clicked, the arrow will be facing up. If clicked again, it will be facing down again.
+      * @returns up or down arrow based on state
+      */
      DropdownArrow() {
           if (this.state.open == true) {
                return (

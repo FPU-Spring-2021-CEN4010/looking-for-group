@@ -3,9 +3,21 @@ import axios from 'axios'
 import CreationForm from "../CreationForm"
 import {mutate} from 'swr'
 
+/**
+ * @method ModifyGroup
+ * @description Displays the Modify Group popup
+ * @param {*} param0 
+ * @returns 
+ */
 function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
      const [formData, updateFormData] = useState(initialValues);
 
+
+     /**
+      * @method validateGroup
+      * @description validates all the data entered is of the correct type, and return the updated data
+      * @returns 
+      */
      const verifyValues = () => {
 
           // pull the updated information from the current advertisement
@@ -43,6 +55,11 @@ function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
           return updateData;
      }
 
+     /**
+      * @method updateGroup
+      * @description Updates the group
+      * @param {*} e 
+      */
      const updateGroup = (e) => {
           e.preventDefault();
 

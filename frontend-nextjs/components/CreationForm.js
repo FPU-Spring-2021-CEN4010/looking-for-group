@@ -1,6 +1,11 @@
 import {useState, useEffect} from 'react';
 
-// this function pulls our selection data from our API, and populates the select elements in the creation forms.
+/**
+ * @method PopulateSelect
+ * @description pulls our selection data from our API, and populates the select elements in the creation forms.
+ * @param {*} param0 
+ * @returns 
+ */
 function PopulateSelect({info, db, name, formData, handleChange, hideCancel, hideContact}) {
      let selector = "Name";
      let testKeys = Object.keys(info[0]);
@@ -15,7 +20,12 @@ function PopulateSelect({info, db, name, formData, handleChange, hideCancel, hid
           }
      });
 
-     // update the advertisement's values
+     /**
+      * @method modify
+      * @description modify group option.
+      * @param {*} param0 
+      * @returns 
+      */
      const modify = () => {
           if (hideCancel && hideContact) {
                return <option key="empty" value=""></option>
@@ -60,7 +70,11 @@ function CreationForm({
 
      const [formData, updateFormData] = useState(initialFormData);
 
-     // check if an option was changed
+     /**
+      * @method handleChange
+      * @description handles changes made
+      * @param {*} e 
+      */
      const handleChange = (e) => {
           const value = e.target.type === 'textarea' ? e.target.value : e.target.value.trim();
           

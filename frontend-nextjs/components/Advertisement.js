@@ -2,6 +2,12 @@ import DeleteGroup from './popups/DeleteGroup'
 import ModifyGroup from './popups/ModifyGroup'
 import {useState} from 'react'
 
+/**
+ * @method Advertisement
+ * @description Advertisment functions
+ * @param {*} param0 
+ * @returns 
+ */
 function Advertisement({values, filterFunc, fields, user}) {
 
      const initialFormData = Object.freeze({modify: false, delete: false})
@@ -9,8 +15,13 @@ function Advertisement({values, filterFunc, fields, user}) {
      const [formData, updateFormData] = useState(initialFormData);
 
      // create helper functions to show/hide the Modify/Delete buttons 
-
-     // show the modify popup
+          
+     /**
+      * @method showModify
+      * @description show the modify button
+      * @param {*} param0 
+      * @returns 
+      */
      function showModify() {
           updateFormData({
                ...formData,
@@ -19,7 +30,12 @@ function Advertisement({values, filterFunc, fields, user}) {
           });
      }
 
-     // show the delete popup
+     /**
+      * @method showDelete
+      * @description show the delete button
+      * @param {*} param0 
+      * @returns 
+      */
      function showDelete() {
           updateFormData({
                ...formData,
@@ -29,7 +45,12 @@ function Advertisement({values, filterFunc, fields, user}) {
      }
 
 
-     // hide the modify popup
+    /**
+      * @method hideModify
+      * @description hide the modify button
+      * @param {*} param0 
+      * @returns 
+      */
      function hideModify() {
           updateFormData({
                ...formData,
@@ -38,7 +59,12 @@ function Advertisement({values, filterFunc, fields, user}) {
           });
      }
 
-     // hide the delete popup
+     /**
+      * @method hideDelete
+      * @description hide the delete button
+      * @param {*} param0 
+      * @returns 
+      */
      function hideDelete() {
           updateFormData({
                ...formData,
@@ -48,25 +74,40 @@ function Advertisement({values, filterFunc, fields, user}) {
      }
 
 
-     // display the modify popup, with the advertisements' current values
+     /**
+      * @method displayModify
+      * @description display the modify popup with the values from the current advertisement
+      * @param {*} param0 
+      * @returns 
+      */
      function displayModify() {
-          if (formData.modify == true) { // show the modify popup with the values from the current advertisement
+          if (formData.modify == true) { 
                return <ModifyGroup initialValues={values} id={values.id} close={hideModify} fields={fields} filterFunc={filterFunc}/>
           }
           return;
      }
 
-     // display the delete popup
+      /**
+      * @method displayModify
+      * @description display the delete popup
+      * @param {*} param0 
+      * @returns 
+      */
      function displayDelete() {
-          if (formData.delete == true) { // show the delete popup
+          if (formData.delete == true) {
                return <DeleteGroup close={hideDelete} id={values.id} filterFunc={filterFunc}/>
           }
           return;
      }
      
-     // display the buttons
+      /**
+      * @method showButtons
+      * @description show the edit/delete buttons 
+      * @param {*} param0 
+      * @returns 
+      */
      function showButtons() {
-          if (user?.uid == values.Active_User.id) { // show the edit/delete buttons 
+          if (user?.uid == values.Active_User.id) {
                return (
                     <div className="alter-buttons">
                          <button className="edit-button" type="button" onClick={showModify}>&#9999;</button>

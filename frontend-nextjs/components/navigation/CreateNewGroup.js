@@ -22,7 +22,11 @@ class CreateNewGroup extends NavigationComponent {
           }
      }
 
-     //Verify all data is of the correct type. If its not, fix it and return the updated data.
+     /**
+      * @method validateGroup
+      * @description validates all the data entered is of the correct type, and return the updated data
+      * @returns 
+      */
      validateGroup = () => {
           let formData = this.state;
 
@@ -55,6 +59,11 @@ class CreateNewGroup extends NavigationComponent {
           return formData;
      }
 
+     /**
+      * @method createGroup
+      * @description creates a group
+
+      */
      // create group function
      createGroup = () => {
           // make sure the data entered is valid 
