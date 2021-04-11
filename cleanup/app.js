@@ -2,6 +2,8 @@ const Cleaner = require('./Cleaner');
 const Schedule = require('node-schedule')
 require('dotenv').config();
 
+console.log("Cleanup process is now running!");
+
 /**
  * Schedule the cleaner to run once, daily. 
  */
