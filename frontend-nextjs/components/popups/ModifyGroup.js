@@ -23,7 +23,7 @@ function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
           // pull the updated information from the current advertisement
           let updateData = {...formData};
 
-          // remove active user since it is not used
+          // remove active user since it isn't used
           delete updateData.Active_User;
 
           // declare the numeric value fields 
