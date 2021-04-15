@@ -4,6 +4,9 @@
 -- ------------------------------------------------------
 -- Server version	10.3.23-MariaDB-0+deb10u1
 
+create schema if not exists abd_looking_for_group;
+use abd_looking_for_group;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -35,16 +38,6 @@ CREATE TABLE `active_users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `active_users`
---
-
-LOCK TABLES `active_users` WRITE;
-/*!40000 ALTER TABLE `active_users` DISABLE KEYS */;
-INSERT INTO `active_users` VALUES (124,'hassan',NULL,NULL,'2021-04-15 23:04:40','2021-04-15 23:04:40'),(125,'123456',NULL,NULL,'2021-04-16 00:18:54','2021-04-16 00:18:54'),(126,'test123',NULL,NULL,'2021-04-16 01:44:41','2021-04-16 01:44:41');
-/*!40000 ALTER TABLE `active_users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `advertisements`
 --
 
@@ -70,16 +63,6 @@ CREATE TABLE `advertisements` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `advertisements`
---
-
-LOCK TABLES `advertisements` WRITE;
-/*!40000 ALTER TABLE `advertisements` DISABLE KEYS */;
-INSERT INTO `advertisements` VALUES (135,1,NULL,NULL,'2021-04-16 00:23:00','2021-04-16 00:37:51',3,4,12,3,2,'Hello',3,125,3),(136,2,NULL,NULL,'2021-04-16 00:51:33','2021-04-16 00:51:33',1,1,2,1,1,'asdsd',1,125,1),(137,2,NULL,NULL,'2021-04-16 00:52:32','2021-04-16 00:52:32',1,1,2,1,1,'asdsd',1,125,1),(138,2,NULL,NULL,'2021-04-16 00:56:54','2021-04-16 00:56:54',1,1,2,1,1,'sdsd',1,125,1),(139,2,NULL,NULL,'2021-04-16 00:57:09','2021-04-16 00:57:09',1,1,2,1,1,'Hello',1,125,1),(140,2,NULL,NULL,'2021-04-16 00:57:15','2021-04-16 00:57:15',1,1,2,1,1,'Hello',1,125,1),(141,2,NULL,NULL,'2021-04-16 00:57:33','2021-04-16 00:57:33',1,1,2,1,1,'Unlocking them hips',1,125,1);
-/*!40000 ALTER TABLE `advertisements` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `comms`
