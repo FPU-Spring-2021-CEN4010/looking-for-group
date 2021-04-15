@@ -1,6 +1,10 @@
 # ABD Looking for Group Web Application
 Thank you for using our software! We have written this short piece of documentation to help you understand our program and how to get it up and running. 
 
+## Description
+
+Write some description here.
+
 ## Requirements
 
 - NodeJS (Version: 14.9.0)
@@ -68,7 +72,7 @@ RUNTIME_MIN=00					     //The minute for the cleaner to run. (00-60)
 API_URL=https://abdapi.bcariaga.me      //The URL of the API.
 ```
 
-#### Node Packages
+#### Dependencies
 
 Before we are able to start, we need to ensure that we have all of our dependencies. To do this, we must travel to each of the process directories (*backend-strapi, frontend-next, cleanup*) and run this command: 
 
@@ -76,7 +80,15 @@ Before we are able to start, we need to ensure that we have all of our dependenc
 npm install
 ```
 
-### 3.a. Deploying the Application (Manually)
+### 3. Building the Application
+
+Before we are able to start, we need to ensure that we have all of our dependencies. To do this, we must travel to the backend and frontend process directories (*backend-strapi and frontend-next*) and run this command: 
+
+```
+npm run build
+```
+
+### 4.a. Deploying the Application (Manually)
 
 There are 3 separate services required to be run for this software to work properly: Backend, Frontend, and Cleanup. 
 
@@ -113,7 +125,7 @@ npm run start
 
 The cleanup process should be running, now.
 
-### 3.b. Deploying the Application (Automatically Using PM2)
+### 4.b. Deploying the Application (Automatically Using PM2)
 
 There are 3 separate services required to be run for this software to work properly: Backend, Frontend, and Cleanup. By using PM2, the node processes won't be tied to a terminal, and will be automatically restarted upon crash or server shutdown. 
 
@@ -150,16 +162,6 @@ pm2 start npm --name abd-cleanup -- start
 
 The cleanup process should be running, now.
 
-## How to Use
+## Our Contribution
 
-## File Structure
-
-## Developer API Documentation
-
-API Endpoints
-
-fields
-
-advertisments
-
-active-users
+## Third-Party Libraries
