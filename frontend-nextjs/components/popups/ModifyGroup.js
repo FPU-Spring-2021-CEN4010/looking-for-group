@@ -12,20 +12,16 @@ import {mutate} from 'swr'
 function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
      const [formData, updateFormData] = useState(initialValues);
 
-<<<<<<< Updated upstream
-
-     /**
-      * @method validateGroup
-      * @description validates all the data entered is of the correct type, and return the updated data
-      * @returns 
-      */
-     const verifyValues = () => {
-=======
      const [validation, updateValidation] = useState({
           state: false,
           errMessage: ""
      })
 
+     /**
+      * @method validate
+      * @description checks for all entries filled. 
+      * @returns 
+      */
      const validate = async () => {
           return new Promise((resolve, reject) => {
                let formKeys = Object.keys(formData);
@@ -40,8 +36,12 @@ function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
                });
           })
      }
->>>>>>> Stashed changes
 
+     /**
+      * @method validateValues
+      * @description validates all the data entered is of the correct type, and return the updated data
+      * @returns 
+      */
      const verifyValues = () => {
           // pull the updated information from the current advertisement
           let updateData = {...formData};
@@ -78,16 +78,12 @@ function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
           return updateData;
      }
 
-<<<<<<< Updated upstream
      /**
       * @method updateGroup
       * @description Updates the group
       * @param {*} e 
       */
-     const updateGroup = (e) => {
-=======
      const updateGroup = async (e) => {
->>>>>>> Stashed changes
           e.preventDefault();
 
           //Validate the form values.
@@ -127,7 +123,10 @@ function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
           }
      }
 
-     //Close the invalid popup. 
+     /**
+      * @method closeInvalid
+      * @description Closes and updates state for the invalid window.
+      */
      const closeInvalid = () => {
           updateValidation({
                state: false,
@@ -135,7 +134,8 @@ function ModifyGroup({id, initialValues, close, fields, filterFunc}) {
           })
      }
 
-     if(validation.errMessage != "") { // html for the invalid popup where we instruct the user that they are NOT the owner of this group so they cannot delete it
+     //Display the error box if there is an error. 
+     if(validation.errMessage != "" && validation.errMessage.length >= 0) { 
           return (
                <div>
                     <div className="popup">

@@ -18,8 +18,37 @@ class CreateNewGroup extends NavigationComponent {
                Num_Players: "",
                Platform: "1",
                Player_Role: "1",
-               Region: "1"
+               Region: "1",
+               validation: false,
+               errMessage: ""
           }
+     }
+
+     /**
+      * @method validate
+      * @description checks for all entries filled. 
+      * @returns 
+      */
+     validate = async () => {
+          return new Promise((resolve, reject) => {
+               let formData = {...this.state}
+
+               delete formData.validation;
+               delete formData.errMessage;
+               delete formData.open;
+               delete formData.css;
+
+               let formKeys = Object.keys(formData);
+               formKeys.forEach((v, i) => {
+                    let data = formData[v];
+                    if (data == "" || data == null || data?.length <= 0) {
+                         console.log(data);
+                         reject("EMPTY_VAL");
+                    }
+
+                    if (i == formKeys.length-1) resolve();
+               });
+          })
      }
 
      /**
@@ -27,12 +56,14 @@ class CreateNewGroup extends NavigationComponent {
       * @description validates all the data entered is of the correct type, and return the updated data
       * @returns 
       */
-     validateGroup = () => {
-          let formData = this.state;
+     validateGroup = async () => {
+          let formData = {...this.state};
 
           // remove unused properties
           delete formData.css;
           delete formData.open;
+          delete formData.errMessage;
+          delete formData.validation;
 
           // declare the numerical value selects
           let numberFields = ["Comm", "Game_Mode", "Game_Name", "Game_Rank", "Num_Players", "Platform", "Player_Role", "Region"]
@@ -65,17 +96,43 @@ class CreateNewGroup extends NavigationComponent {
 
       */
      // create group function
-     createGroup = () => {
-          // make sure the data entered is valid 
-          let validFormData = this.validateGroup();
+     createGroup = async () => {
+          //Validate the form values.
+          try {
+               await this.validate();
+               this.setState({
+                    ...this.state,
 
-          // send a request to create a new group
-          axios.post("/advertisments", validFormData).then((res) => {
-               if (res.status == 200) { // request successful
-                    this.props.filterFunc("");
-                    mutate("/advertisments");
+                    validation: true,
+                    errMessage: ""
+               })
+          } catch(err) {
+               if (err == "EMPTY_VAL") {
+                    this.setState({
+                         ...this.state,
+
+                         validation: false,
+                         errMessage: "Not all form values are entered. Please make sure all fields are filled."
+                    })
                }
-          })
+               console.log(err);
+          }
+
+          //Check if validation passed.
+          if (this.state.validation == true && this.state.errMessage == "") {
+               // make sure the data entered is valid 
+               let validFormData = await this.validateGroup();
+
+               console.log(validFormData)
+
+               // send a request to create a new group
+               axios.post("/advertisments", validFormData).then((res) => {
+                    if (res.status == 200) { // request successful
+                         this.props.filterFunc("");
+                         mutate("/advertisments");
+                    }
+               })
+          }
      }
 
      // update the state
@@ -83,13 +140,40 @@ class CreateNewGroup extends NavigationComponent {
           this.setState(state);
      }
 
+     /**
+      * @method closeInvalid
+      * @description Closes and updates state for the invalid window.
+      */
+     closeInvalid = () => {
+          this.setState({
+               ...this.state,
+
+               validation: false,
+               errMessage: ""
+          })
+     }
+
      // return html
      htmlContent = () => {
-          return (
-               <div>
-                    <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.createGroup} title="" hideContact={false} fields={this.props.fields}/>
-               </div>
-          )
+          if(this.state.errMessage != "" && this.state.errMessage.length >= 0) { 
+               return (
+                    <div>
+                         <div className="popup">
+                              <h3>Error Modifying!</h3>
+           
+                              <p>{this.state.errMessage}</p>
+           
+                              <button id="invalidOwnerPopup" type="button" onClick={this.closeInvalid}>Close</button>
+                         </div>
+                    </div>
+               )
+          } else {
+               return (
+                    <div>
+                         <CreationForm initialValues={this.state} funcState={this.updateState} funcSubmit={this.createGroup} title="" hideContact={false} fields={this.props.fields}/>
+                    </div>
+               )
+          }
      }
 }
 
