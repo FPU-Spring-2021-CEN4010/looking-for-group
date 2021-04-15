@@ -37,19 +37,19 @@ For the backend and cleanup processes, you must create a file called *.env* This
 ##### Backend (*backend-strapi/.env*)
 
 ```
-HOST=0.0.0.0										//The host ip for the backend process.
-PORT=1337											//The port of the backend process.
+HOST=0.0.0.0								//The host ip for the backend process.
+PORT=1337									//The port of the backend process.
 
-DATABASE_USERNAME=braden							//The username of the user to the database.
-DATABASE_PASSWORD=bcbest							//The password of the user to the database.
-DATABASE_HOST=192.168.1.240							//The host ip for the database.
-DATABASE_PORT=3306									//The port for the database.
-DATABASE_NAME=abd_looking_for_group					//The name for the database.
-DATABASE_SSL=false									//Whether to transfer as HTTPS or HTTP.
+DATABASE_USERNAME=braden						//The username of the user to the database.
+DATABASE_PASSWORD=bcbest					     //The password of the user to the database.
+DATABASE_HOST=192.168.1.240					//The host ip for the database.
+DATABASE_PORT=3306							//The port for the database.
+DATABASE_NAME=abd_looking_for_group			//The name for the database.
+DATABASE_SSL=false							//Whether to transfer as HTTPS or HTTP.
 
-JWT_TOKEN=bc080210-a1fa-4ff9-af9e-ea61c35e8360		//Hidden JWT auth token.
+JWT_TOKEN=bc080210-a1fa-4ff9-af9e-ea61c35e8360    //Hidden JWT auth token.
 
-COOKIE_DOMAIN=localhost								//Domain base for the cookie creation.
+COOKIE_DOMAIN=localhost					     //Domain base for the cookie creation.
 ```
 
 ##### Frontend (*frontend-next/next.config.js*)
@@ -59,13 +59,13 @@ For the frontend process, you must modify the API_URL as a JavaScript Object loc
 ##### Cleanup (*cleanup/.env*)
 
 ```
-CL_USER=cleaner 						//The username of the strapi account for the cleaner.
-CL_PASS=Cleaner123						//The password of the strapi account for the cleaner.
+CL_USER=cleaner 					//The username of the strapi account for the cleaner.
+CL_PASS=Cleaner123					//The password of the strapi account for the cleaner.
 
-RUNTIME_HR=18							//The hour for the cleaner to run. (0-23)
-RUNTIME_MIN=00							//The minute for the cleaner to run. (00-60)
+RUNTIME_HR=18						//The hour for the cleaner to run. (0-23)
+RUNTIME_MIN=00					     //The minute for the cleaner to run. (00-60)
 
-API_URL=https://abdapi.bcariaga.me 		//The URL of the API.
+API_URL=https://abdapi.bcariaga.me      //The URL of the API.
 ```
 
 #### Node Packages
