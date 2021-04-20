@@ -7,6 +7,7 @@ class HowToUse extends NavigationComponent {
                <div className="color-text-white">
                     <h2>How to Create Groups</h2>
                     <p>Before creating a group, please disable adblocker; Otherwise, you will not be able to create a group. <br></br>
+                    Additionally, be sure to fill out all fields as they are required to be filled out before submitting them. <br></br>
                     To create a group, first click on the <b>Create a New Group</b> tab. Next, fill in all of the provided boxes <br></br>
                     with information pertaining to your group. Afterwords, click the <b>Submit</b> button. Your information will then display on the screen. <br></br>
                     If you do not see your information on the screen, refresh the web broswer. If it still does not show, please contact ddawson6486@floridapoly.edu.</p>
@@ -17,6 +18,7 @@ class HowToUse extends NavigationComponent {
                     If you do not see your information on the screen, refresh the web broswer. If it still does not show, please contact ddawson6486@floridapoly.edu.</p>
                     <h2>How to Modify your Group</h2>
                     <p>Before modifying a group, please disable adblocker; Otherwise, you will not be able to modify a group. <br></br>
+                    Additionally, be sure to fill out all fields as they are required to be filled out before submitting them. <br></br>
                     To modify your group, first find your group box displayed on the bottom with other advertisments. Next, click on the modify group icon. <br></br>
                     Next, a pop up with your group information will appear. Fill in the information that you want to modify. <br></br>
                     Afterwords, click the <b>Submit</b> button. Your modified group will then display on the screen.  <br></br>
