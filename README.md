@@ -226,6 +226,8 @@ All directories/files in the *api* folder were created automatically using the g
 
 ### Frontend
 
+All backend files are located under *frontend-next*. In this directory, you will find the following files (directories will be denoted with a preceding "/"):
+
 - **/ - assets**
   - **style.css**
     - This file contains all of the styles used by our frontend.
