@@ -305,7 +305,9 @@ The endpoints are listed in order from least restrictive to the most. Any endpoi
 ### Cleaner Only
 
 **DELETE - /active-users/:id (*not inherited*)**
-	Deletes the user with the id specified. 
+	
+
+​	Deletes the user with the id specified. 
 
 **DELETE - /advertisments/:id**
 
