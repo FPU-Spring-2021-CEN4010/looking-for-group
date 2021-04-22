@@ -319,7 +319,7 @@ The endpoints are listed in order from least restrictive to the most. Any endpoi
 
 ```json
 {
-	DisplayName: "Some Name Here"
+	"DisplayName": "Some Name Here"
 }
 ```
 
@@ -331,15 +331,15 @@ The endpoints are listed in order from least restrictive to the most. Any endpoi
 
 ```json
 {
-	Game_Mode: 1
-	Game_Name: 1
-	Game_Rank: 27
-	Num_Players: 2
-	Region: 1
-	Comm: 1
-	Contact_Desc: "Something here that says how to connect"
-	Platform: 1
-	Player_Role: 2
+	"Game_Mode": 1,
+	"Game_Name": 1,
+	"Game_Rank": 27,
+	"Num_Players": 2,
+	"Region": 1,
+	"Comm": 1,
+	"Contact_Desc": "Something here that says how to connect",
+	"Platform": 1,
+	"Player_Role": 2
 }
 ```
 
